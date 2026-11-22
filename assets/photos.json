@@ -1,0 +1,82 @@
+[
+  {
+    "id": "flinders",
+    "site": "Flinders Street Station",
+    "description": "Station exterior",
+    "source": "https://commons.wikimedia.org/wiki/File:Flinders_St_Station_Melbourne._(20484830004).jpg",
+    "author": "Bernard Spragg",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "modified": "Scaled for display."
+  },
+  {
+    "id": "library",
+    "site": "State Library Victoria",
+    "description": "La Trobe Reading Room",
+    "source": "https://commons.wikimedia.org/wiki/File:State_Library_of_Victoria_La_Trobe_Reading_room_5th_floor_view.jpg",
+    "author": "Diliff",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5/",
+    "modified": "Cropped and resized to 640 × 360 pixels by Melbourne Visitor Explorer."
+  },
+  {
+    "id": "block",
+    "site": "The Block Arcade",
+    "description": "Arcade interior",
+    "source": "https://commons.wikimedia.org/wiki/File:Melbourne_Block_Arcade_Interior_01.jpg",
+    "author": "Ymblanter",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "modified": "Cropped and resized to 640 × 360 pixels by Melbourne Visitor Explorer."
+  },
+  {
+    "id": "federation",
+    "site": "Federation Square",
+    "description": "Public plaza",
+    "source": "https://commons.wikimedia.org/wiki/File:Federation_Square_December_2020.jpg",
+    "author": "Nick-D",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "modified": "Cropped and resized to 640 × 360 pixels by Melbourne Visitor Explorer."
+  },
+  {
+    "id": "cathedral",
+    "site": "St Paul's Cathedral",
+    "description": "Cathedral",
+    "source": "https://commons.wikimedia.org/wiki/File:Melbourne_StPaulCathedral.JPG",
+    "author": "JohnArmagh",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "modified": "Cropped and resized to 640 × 360 pixels by Melbourne Visitor Explorer."
+  },
+  {
+    "id": "immigration",
+    "site": "Immigration Museum",
+    "description": "Old Customs House exterior",
+    "source": "https://commons.wikimedia.org/wiki/File:Immigration_Museum,_Melbourne_-_Joy_of_Museums_-_External.jpg",
+    "author": "GordonMakryllos",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "modified": "Cropped and resized to 640 × 360 pixels by Melbourne Visitor Explorer."
+  },
+  {
+    "id": "royal",
+    "site": "Royal Arcade",
+    "description": "Central hall",
+    "source": "https://commons.wikimedia.org/wiki/File:Melbourne_Royal_Arcade_central_hall_seen_from_the_south.jpg",
+    "author": "Ymblanter",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "modified": "Cropped and resized to 640 × 360 pixels by Melbourne Visitor Explorer."
+  },
+  {
+    "id": "market",
+    "site": "Queen Victoria Market",
+    "description": "Market facade",
+    "source": "https://commons.wikimedia.org/wiki/File:Melbourne_(AU),_Queen_Victoria_Market_--_2019_--_1535.jpg",
+    "author": "Dietmar Rabich",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "modified": "Cropped and resized to 640 × 360 pixels by Melbourne Visitor Explorer."
+  }
+]

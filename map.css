@@ -1,0 +1,27 @@
+.cbd-map {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #eeeae0;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.cbd-map.is-dragging { cursor: grabbing; }
+.cbd-map > svg { display: block; width: 100%; height: 100%; }
+.cbd-map .map-street, .cbd-map .map-district, .cbd-map .map-park, .cbd-map .map-water {
+  text-anchor: middle;
+  pointer-events: none;
+  font-family: 'Arial', sans-serif;
+}
+.cbd-map .map-street { fill:#72766c; font-size:var(--map-road-size,34px); letter-spacing:1px; paint-order:stroke; stroke:#f7f4e9; stroke-width:3px; }
+.cbd-map .map-district { fill:#88877b; font-size:var(--map-district-size,44px); font-weight:600; letter-spacing:5px; opacity:.78; }
+.cbd-map .map-park { fill:#5f7656; font-size:var(--map-park-size,36px); font-style:italic; paint-order:stroke; stroke:#d4dfc6; stroke-width:4px; }
+.cbd-map .map-water { fill:#346c78; font-family:Georgia, serif; font-size:var(--map-water-size,45px); font-style:italic; letter-spacing:1px; }
+.cbd-map .map-marker { cursor:pointer; outline:none; }
+.cbd-map .pin-body { fill:#395b46; stroke:#fffaf0; stroke-width:1.9; }
+.cbd-map .map-marker[aria-pressed="true"] .pin-body { fill:#c4673d; }
+.cbd-map .map-marker:is(:hover,:focus-visible) .pin-body { stroke:#292f24; stroke-width:2.3; }
+.cbd-map .pin-text { fill:#fffaf0; text-anchor:middle; font:600 12px Arial,sans-serif; pointer-events:none; }
