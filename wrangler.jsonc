@@ -1,0 +1,17 @@
+{
+  "name": "melbourne-guide-voice",
+  "main": "backend/worker.js",
+  "compatibility_date": "2026-11-22",
+  "workers_dev": true,
+  "vars": {
+    "ALLOWED_ORIGINS": "https://bepobepo.github.io"
+  },
+  "durable_objects": {
+    "bindings": [
+      { "name": "AUDIO_TRACKS", "class_name": "AudioTrack" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["AudioTrack"] }
+  ]
+}

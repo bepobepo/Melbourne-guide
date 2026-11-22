@@ -1,0 +1,122 @@
+name: Voice guides
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+concurrency:
+  group: melbourne-pages-production
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    permissions:
+      contents: read
+      pages: read
+    env:
+      VOICE_WORKER_URL: ${{ vars.VOICE_WORKER_URL }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test audio handling
+        run: npm test
+      - name: Check audio configuration
+        env:
+          INWORLD_API_KEY: ${{ secrets.INWORLD_API_KEY }}
+        run: |
+          if [[ -z "$VOICE_WORKER_URL" && -z "$INWORLD_API_KEY" ]]; then
+            echo "::error::Add INWORLD_API_KEY in Settings → Secrets and variables → Actions → Repository secrets, or set the VOICE_WORKER_URL repository variable to a deployed Worker /audio endpoint. Select Settings → Pages → Source → GitHub Actions, then Actions → Voice guides → Run workflow on main."
+            exit 1
+          fi
+      - name: Check Pages settings
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Verify Worker for both languages
+        if: env.VOICE_WORKER_URL != ''
+        env:
+          PAGES_URL: ${{ steps.pages.outputs.base_url }}
+        run: node scripts/check-voice-pages.mjs --worker
+      - name: Restore previous recordings
+        if: env.VOICE_WORKER_URL == ''
+        id: cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/recordings
+          key: voice-mp3-v1-${{ hashFiles('sites.js', 'guides.js', 'voice-tracks.js') }}
+          restore-keys: |
+            voice-mp3-v1-
+      - name: Generate missing recordings
+        if: env.VOICE_WORKER_URL == ''
+        id: record
+        env:
+          INWORLD_API_KEY: ${{ secrets.INWORLD_API_KEY }}
+        run: node scripts/generate-audio.mjs "$RUNNER_TEMP/recordings"
+      - name: Save completed recordings
+        if: "!cancelled() && (steps.record.outcome == 'success' || steps.record.outcome == 'failure') && steps.cache.outputs.cache-hit != 'true'"
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/recordings
+          key: ${{ steps.cache.outputs.cache-primary-key }}${{ steps.record.outcome == 'failure' && format('-partial-{0}-{1}', github.run_id, github.run_attempt) || '' }}
+      - name: Assemble static guide
+        run: node scripts/build-voice-pages.mjs "$RUNNER_TEMP/site" "$RUNNER_TEMP/recordings"
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Ensure this is still the current main commit
+        id: current
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          head=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha')
+          if [[ "$head" == "$GITHUB_SHA" ]]; then
+            echo 'publish=true' >> "$GITHUB_OUTPUT"
+          else
+            echo "Skipping superseded build for $GITHUB_SHA."
+          fi
+      - name: Deploy guide
+        if: steps.current.outputs.publish == 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  verify:
+    needs: deploy
+    if: needs.deploy.outputs.page_url != ''
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify live guide, installation page and recordings
+        env:
+          PAGES_URL: ${{ needs.deploy.outputs.page_url }}
+          VOICE_WORKER_URL: ${{ vars.VOICE_WORKER_URL }}
+        run: node scripts/check-voice-pages.mjs

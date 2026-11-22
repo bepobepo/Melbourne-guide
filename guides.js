@@ -63,6 +63,20 @@ const copy = {
   }
 };
 
+// Shared by the guide pages and the audio track catalogue.
+export function guideNarration(id, lang) {
+  const c = copy[lang];
+  if (id === 'history') {
+    const chapters = c.chapters.map(([, title, story]) => title + '. ' + story);
+    return [c.historyTitle + '.', ...chapters].join('\n\n');
+  }
+  if (id === 'transport') {
+    const sections = c.sections.map(([title, advice]) => title + '. ' + advice);
+    return [c.transport + '.', ...sections].join('\n\n');
+  }
+  return null;
+}
+
 const bundledRates = {
   date: '2026-11-22',
   aud: { usd: 0.66208946, gbp: 0.5060331, eur: 0.60354761, ils: 2.20296221 },

@@ -2,6 +2,7 @@ import {sites} from './sites.js';
 import {mountMap} from './map.js';
 import {renderGuide, activateGuide} from './guides.js';
 import {icon} from './icons.js';
+import {mountVoice, stopVoice} from './voice-player.js';
 
 const main = document.querySelector('#main');
 const sheet = document.querySelector('#sheet');
@@ -89,6 +90,7 @@ function explore() {
   document.querySelector('#zoom-out').onclick=()=>map.zoom(-1);
 }
 function modal(content,label) {
+  stopVoice();
   sheet.innerHTML=`<button class="modal-close" data-close aria-label="${t('Close','Закрыть')}">${icon('cross',19)}</button>${content}`;
   sheet.setAttribute('aria-label',label);
   if(!sheet.open) sheet.showModal();
@@ -99,8 +101,9 @@ function openSite(id,prompt=false,fromList=false) {
   const s=byId(id);if(!s)return;
   selected=id;map?.select(id);
   const field=document.querySelector('#field-note');if(field)field.innerHTML=fieldNote();
-  modal(`<img class="detail-photo" src="${s.image}" alt="${s.alt[lang]}"><div class="detail-body">${fromList?`<button class="back-list" data-all>← ${t('All places','Все места')}</button>`:''}<span class="place-category ${s.category}"><i></i>${category(s.category)}</span><h2>${s.name[lang]}</h2><p class="detail-address">${icon('pin',16)} ${s.address}</p><p class="detail-history">${s.history[lang]}</p>
+  modal(`<img class="detail-photo" src="${s.image}" alt="${s.alt[lang]}"><div class="detail-body">${fromList?`<button class="back-list" data-all>← ${t('All places','Все места')}</button>`:''}<span class="place-category ${s.category}"><i></i>${category(s.category)}</span><h2>${s.name[lang]}</h2><p class="detail-address">${icon('pin',16)} ${s.address}</p><div class="site-voice"></div><p class="detail-history">${s.history[lang]}</p>
   <details class="question" ${prompt?'open':''}><summary>${icon('binoculars',20)} ${t('Look a little closer','Присмотритесь внимательнее')} ${icon('down',16)}</summary><p>${s.question[lang]}</p><button class="reveal" aria-expanded="false">${t('Reveal the answer','Узнать ответ')}</button><p class="answer" hidden>${s.answer[lang]}</p></details><div class="detail-links"><a href="https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lon}&travelmode=walking" target="_blank" rel="noopener noreferrer">${icon('walk',17)} ${t('Walking directions','Пеший маршрут')} ${icon('arrowup',13)}</a><a href="${s.source}" target="_blank" rel="noopener noreferrer">${t('Read more','Подробнее')} ${icon('arrowup',13)}</a></div></div>`,s.name[lang]);
+  mountVoice(sheet.querySelector('.site-voice'), {id:'site/'+s.id, lang});
   sheet.querySelector('.reveal').onclick=e=>{ const a=sheet.querySelector('.answer');a.hidden=!a.hidden;e.currentTarget.setAttribute('aria-expanded',String(!a.hidden));e.currentTarget.textContent=a.hidden?t('Reveal the answer','Узнать ответ'):t('Hide answer','Скрыть ответ'); };
   if(prompt) sheet.querySelector('.question').scrollIntoView({block:'nearest'});
 }
@@ -123,14 +126,29 @@ document.addEventListener('click',e=>{
  else if(el.dataset.site)openSite(el.dataset.site,false,!!el.closest('.directory'));
  else if(el.dataset.prompt)openSite(el.dataset.prompt,true);
 });
-sheet.addEventListener('close',()=>document.body.classList.remove('modal-open'));
+sheet.addEventListener('close',()=>{
+  if(sheet.open)return;
+  document.body.classList.remove('modal-open');
+  if(view==='explore')stopVoice();
+});
 sheet.addEventListener('click',e=>{if(e.target!==sheet)return;const r=sheet.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)sheet.close()});
 function render() {
+  stopVoice();
   view=currentView();document.documentElement.lang=lang;
   document.title=({explore:t('Explore','Обзор'),history:t('History','История'),info:t('Local info','На месте')})[view]+' · Melbourne Field Guide';
   if(sheet.open)sheet.close();map?.destroy();map=null;
   header();
-  if(view==='explore') { explore(); if(locationState==='idle')getLocation(); } else {main.innerHTML=renderGuide(view,lang);activateGuide(main,view,lang);}
+  if(view==='explore') {
+    explore();
+    if(locationState==='idle')getLocation();
+  } else {
+    main.innerHTML=renderGuide(view,lang);
+    activateGuide(main,view,lang);
+    const anchor = view==='history' ? '.guide-heading' : '.transport-section h2';
+    const player = document.createElement('div');
+    main.querySelector(anchor).insertAdjacentElement('afterend',player);
+    mountVoice(player,{id:view==='history'?'history':'transport',lang});
+  }
 }
 window.addEventListener('hashchange',()=>{render();window.scrollTo(0,0);});
 render();

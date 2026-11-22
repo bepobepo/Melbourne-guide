@@ -1,5 +1,5 @@
 self.PRECACHE = {
-  "revision": "0ac5aa2db575a335b42a",
+  "revision": "7ada15ea519e3369cddd",
   "files": [
     "./app.js",
     "./assets/block.jpg",
@@ -32,8 +32,13 @@ self.PRECACHE = {
     "./manifest.webmanifest",
     "./map.css",
     "./map.js",
+    "./mp3.js",
     "./photo-credits.html",
     "./sites.js",
-    "./style.css"
+    "./style.css",
+    "./voice-config.js",
+    "./voice-player.js",
+    "./voice-tracks.js",
+    "./voice.css"
   ]
 };

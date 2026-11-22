@@ -21,7 +21,7 @@ if (!Number.isInteger(port) || port < 0 || port > 65535) throw new Error('Invali
 const mime = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8', '.json': 'application/json',
-  '.webmanifest': 'application/manifest+json', '.jpg': 'image/jpeg',
+  '.webmanifest': 'application/manifest+json', '.mp3': 'audio/mpeg', '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp',
   '.avif': 'image/avif', '.svg': 'image/svg+xml', '.ico': 'image/x-icon',
   '.txt': 'text/plain; charset=utf-8', '.woff': 'font/woff', '.woff2': 'font/woff2', '.ttf': 'font/ttf'
@@ -36,7 +36,7 @@ const server = createServer(async (request, response) => {
     const path = decodeURIComponent(new URL(request.url, 'http://local').pathname);
     const file = resolve(root, '.' + (path === '/' ? '/index.html' : path));
     if (!file.startsWith(root + sep) || path.split('/').some(part => part.startsWith('.'))
-        || !mime[extname(file)] || /^\/(scripts|node_modules|tests?)\//.test(path)
+        || !mime[extname(file)] || /^\/(backend|scripts|node_modules|tests?)\//.test(path)
         || /^\/package(-lock)?\.json$/.test(path)) {
       response.writeHead(404).end();
       return;
