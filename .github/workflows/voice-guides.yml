@@ -31,13 +31,14 @@ jobs:
         run: npm test
       - name: Check audio configuration
         env:
-          INWORLD_API_KEY: ${{ secrets.INWORLD_API_KEY }}
+          INWORLD_API_KEY: ${{ secrets.INWORLD_API_KEY || secrets.INWORLD }}
         run: |
           if [[ -z "$VOICE_WORKER_URL" && -z "$INWORLD_API_KEY" ]]; then
             echo "::error::Add INWORLD_API_KEY in Settings → Secrets and variables → Actions → Repository secrets, or set the VOICE_WORKER_URL repository variable to a deployed Worker /audio endpoint. Select Settings → Pages → Source → GitHub Actions, then Actions → Voice guides → Run workflow on main."
             exit 1
           fi
-      - name: Check Pages settings
+      - name: Get Pages origin for the voice backend
+        if: env.VOICE_WORKER_URL != ''
         id: pages
         uses: actions/configure-pages@v5
       - name: Verify Worker for both languages
@@ -58,7 +59,7 @@ jobs:
         if: env.VOICE_WORKER_URL == ''
         id: record
         env:
-          INWORLD_API_KEY: ${{ secrets.INWORLD_API_KEY }}
+          INWORLD_API_KEY: ${{ secrets.INWORLD_API_KEY || secrets.INWORLD }}
         run: node scripts/generate-audio.mjs "$RUNNER_TEMP/recordings"
       - name: Save completed recordings
         if: "!cancelled() && (steps.record.outcome == 'success' || steps.record.outcome == 'failure') && steps.cache.outputs.cache-hit != 'true'"
