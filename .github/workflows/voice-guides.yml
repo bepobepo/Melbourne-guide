@@ -52,7 +52,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ runner.temp }}/recordings
-          key: voice-mp3-v1-${{ hashFiles('sites.js', 'guides.js', 'voice-tracks.js') }}
+          key: voice-mp3-v1-${{ hashFiles('GUIDE.md', 'sites.js', 'guides.js', 'voice-tracks.js') }}
           restore-keys: |
             voice-mp3-v1-
       - name: Generate missing recordings
@@ -116,6 +116,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Compile the published narration text
+        run: npm run content:build
       - name: Verify live guide, installation page and recordings
         env:
           PAGES_URL: ${{ needs.deploy.outputs.page_url }}

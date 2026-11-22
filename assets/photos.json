@@ -78,5 +78,73 @@
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
     "modified": "Cropped and resized to 640 × 360 pixels by Melbourne Visitor Explorer."
+  },
+  {
+    "id": "flagstaff",
+    "site": "Flagstaff Gardens",
+    "type": "illustration",
+    "description": "Mature elms, curving path and stone marker.",
+    "author": "Melbourne Field Guide / OpenAI image generation",
+    "source": null,
+    "license": null,
+    "license_url": null,
+    "modified": "Original field-guide illustration."
+  },
+  {
+    "id": "carlton",
+    "site": "Carlton Gardens",
+    "type": "engraving",
+    "year": 1888,
+    "description": "The Melbourne Centennial Exhibition of 1888. A bird’s-eye view of the exhibition grounds and gardens.",
+    "source": "https://github.com/martinv678/our-old-world/blob/e3df785cca3974f602c608a98f35e0897b3be183/places/australia/royal-exhibition-building/royal-exhibition-building.md",
+    "author": "The Melbourne Centennial Exhibition of 1888, artist unrecorded",
+    "license": "Public domain",
+    "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "modified": "Resized for display."
+  },
+  {
+    "id": "treasury",
+    "site": "Treasury Gardens",
+    "type": "illustration",
+    "description": "Ornamental pond fringed with weeping willow.",
+    "author": "Melbourne Field Guide / OpenAI image generation",
+    "source": null,
+    "license": null,
+    "license_url": null,
+    "modified": "Original field-guide illustration."
+  },
+  {
+    "id": "fitzroy",
+    "site": "Fitzroy Gardens",
+    "type": "engraving",
+    "year": 1886,
+    "description": "The Fitzroy Gardens, Melbourne. Plate on page 53 of Australian Pictures, Drawn with Pen and Pencil.",
+    "source": "https://www.gutenberg.org/files/39322/39322-h/39322-h.htm#illus_053",
+    "author": "Howard Willoughby, Australian Pictures (1886); engravings by E. Whymper and others",
+    "license": "Public domain",
+    "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "modified": "Scaled for display."
+  },
+  {
+    "id": "birrarung",
+    "site": "Birrarung Marr",
+    "type": "illustration",
+    "description": "Upright Federation Bells on slender poles beside the river terrace.",
+    "author": "Melbourne Field Guide / OpenAI image generation",
+    "source": null,
+    "license": null,
+    "license_url": null,
+    "modified": "Original field-guide illustration."
+  },
+  {
+    "id": "alexandra",
+    "site": "Alexandra Gardens",
+    "type": "illustration",
+    "description": "Rowers on the Yarra near the boathouses.",
+    "author": "Melbourne Field Guide / OpenAI image generation",
+    "source": null,
+    "license": null,
+    "license_url": null,
+    "modified": "Original field-guide illustration."
   }
 ]

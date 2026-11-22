@@ -5,3 +5,6 @@ node_modules/
 .env
 .env.*
 audio/
+
+# Generated from the editable GUIDE.md source by npm scripts.
+/guide-copy.js

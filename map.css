@@ -20,7 +20,8 @@
 .cbd-map .map-district { fill:#88877b; font-size:var(--map-district-size,44px); font-weight:600; letter-spacing:5px; opacity:.78; }
 .cbd-map .map-park { fill:#5f7656; font-size:var(--map-park-size,36px); font-style:italic; paint-order:stroke; stroke:#d4dfc6; stroke-width:4px; }
 .cbd-map .map-water { fill:#346c78; font-family:Georgia, serif; font-size:var(--map-water-size,45px); font-style:italic; letter-spacing:1px; }
-.cbd-map .map-marker { cursor:pointer; outline:none; }
+.cbd-map .map-marker, .cbd-map [data-park-site] { cursor:pointer; }
+.cbd-map .map-marker { outline:none; }
 .cbd-map .pin-body { fill:#395b46; stroke:#fffaf0; stroke-width:1.9; }
 .cbd-map .map-marker[aria-pressed="true"] .pin-body { fill:#c4673d; }
 .cbd-map .map-marker:is(:hover,:focus-visible) .pin-body { stroke:#292f24; stroke-width:2.3; }

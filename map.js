@@ -1,3 +1,5 @@
+import { text } from './guide-copy.js';
+
 // A schematic of the Hoddle Grid. Project coordinates into local metres so
 // landmarks, the visitor marker and the illustration share the same scale.
 const NS = 'http://www.w3.org/2000/svg';
@@ -6,10 +8,6 @@ const esc = text => String(text).replaceAll('&','&amp;').replaceAll('<','&lt;').
 const worldPoint = pair => geoxy(pair[0], pair[1]).map(n => n.toFixed(1)).join(',');
 const segment = (points, colour, width, extra='') =>
   `<polyline points="${points.map(worldPoint).join(' ')}" fill="none" stroke="${colour}" stroke-width="${width}" stroke-linejoin="round" stroke-linecap="round" ${extra}/>`;
-const street = (name, x, y, angle=0) =>
-  `<text class="map-street" transform="translate(${x} ${y}) rotate(${angle})">${esc(name)}</text>`;
-const district = (en,ru,x,y,lang) =>
-  `<text class="map-district" x="${x}" y="${y}">${lang==='ru'?ru:en}</text>`;
 const gx = geoxy(-37.82152,144.95515);
 const rotation = -20.8;
 const gridTransform = `translate(${gx.join(' ')}) rotate(${rotation})`;
@@ -67,33 +65,32 @@ function cityGrid() {
 }
 
 const parks = [
-  {name:['Flagstaff Gardens','Сады Флагстафф'], center:[-37.8102,144.9548],
+  {id:'flagstaff', center:[-37.8102,144.9548],
     points:[[-37.8117,144.9541],[-37.81085,144.9571],[-37.80845,144.95595],[-37.80934,144.95292]]},
-  {name:['Carlton Gardens','Карлтонские сады'], center:[-37.8052,144.9717],
+  {id:'carlton', center:[-37.8052,144.9717],
     points:[[-37.80677,144.96835],[-37.808,144.97366],[-37.80664,144.97608],[-37.80308,144.97608],[-37.80296,144.96958]]},
-  {name:['Treasury Gardens','Сады Трежери'], center:[-37.8141,144.9763],
+  {id:'treasury', center:[-37.8141,144.9763],
     points:[[-37.81567,144.97507],[-37.81452,144.97862],[-37.81284,144.97773],[-37.81374,144.97434]]},
-  {name:['Fitzroy Gardens','Сады Фицрой'],center:[-37.8124,144.9806],
+  {id:'fitzroy',center:[-37.8124,144.9806],
     points:[[-37.81475,144.97923],[-37.81475,144.98398],[-37.80972,144.98398],[-37.80972,144.97899]]},
-  {name:['Birrarung Marr','Биррарунг Марр'],center:[-37.81863,144.97485],
+  {id:'birrarung',center:[-37.81863,144.97485],
     points:[[-37.81967,144.96973],[-37.8188,144.97195],[-37.81748,144.97851],[-37.81975,144.97850],[-37.82219,144.97729],[-37.82069,144.97363]]},
-  {name:['Alexandra Gardens','Александра-Гарденс'],center:[-37.82098,144.97089],
+  {id:'alexandra',center:[-37.82098,144.97089],
     points:[[-37.82043,144.96801],[-37.82065,144.97055],[-37.82154,144.97391],[-37.82232,144.97610],[-37.8241,144.97675],[-37.82252,144.97099]]},
 ];
 
-function greenSpaces(lang,uid) {
-  return parks.map(({points,name,center},i)=>{
+function greenSpaces(uid,sitesById) {
+  return parks.map(({id,points,center},i)=>{
     const projected = points.map(p=>geoxy(...p));
     const minX=Math.min(...projected.map(p=>p[0])),maxX=Math.max(...projected.map(p=>p[0]));
     const minY=Math.min(...projected.map(p=>p[1])),maxY=Math.max(...projected.map(p=>p[1]));
     const poly = points.map(worldPoint).join(' '), [x,y]=geoxy(...center);
     return `<defs><clipPath id="${uid}-park${i}"><polygon points="${poly}"/></clipPath></defs>
-      <polygon points="${poly}" fill="#c8daba" stroke="#b9cda7" stroke-width="4"/>
+      <g${sitesById.has(id)?` data-park-site="${id}"`:''}><polygon points="${poly}" fill="#c8daba" stroke="#b9cda7" stroke-width="4"/>
       <g clip-path="url(#${uid}-park${i})">
         <rect x="${minX}" y="${minY}" width="${maxX-minX}" height="${maxY-minY}" fill="url(#${uid}-trees)"/>
         <path d="M${minX} ${minY} Q${x} ${y+40} ${maxX} ${maxY} M${minX} ${maxY} Q${x-30} ${y-5} ${maxX} ${minY}" fill="none" stroke="#ebeadd" stroke-width="7"/>
-      </g>
-      `;
+      </g></g>`;
   }).join('');
 }
 
@@ -110,7 +107,7 @@ function river(lang) {
     ${bridge([-37.82099,144.95514],[-37.82465,144.95594],24)}
     ${bridge([-37.82034,144.95982],[-37.82212,144.96018],23)}
     ${bridge([-37.81853,144.96739],[-37.82104,144.96855],29)}
-    <text class="map-water" transform="translate(${x} ${y}) rotate(-14)">${lang==='ru'?'Ярра':'Yarra River'}</text>`;
+    <text class="map-water" transform="translate(${x} ${y}) rotate(-14)">${esc(text('ui.map.yarra',lang))}</text>`;
 }
 
 function railway() {
@@ -126,37 +123,43 @@ function railway() {
 }
 
 function cityLabels(lang) {
+  const street = (key,x,y,angle=0) =>
+    `<text class="map-street" transform="translate(${x} ${y}) rotate(${angle})">${esc(text(key,lang))}</text>`;
+  const district = (key,x,y) =>
+    `<text class="map-district" x="${x}" y="${y}">${esc(text(key,lang))}</text>`;
   const pieces = [
-    street('FLINDERS ST',245,9),street('FLINDERS ST',1410,9),
-    street('COLLINS ST',180,-206),street('COLLINS ST',1580,-206),
-    street('SWANSTON ST',1150,-975,-90),street('SWANSTON ST',1150,-444,-90),
-    street('SPRING ST',1835,-600,-90),
-    street('LA TROBE ST',480,-854),street('LA TROBE ST',1490,-854),
-    street('LONSDALE ST',300,-639),street('LONSDALE ST',1450,-640),
-    street('BOURKE ST',650,-424),street('BOURKE ST',1620,-424),
-    street('COLLINS ST',470,-206),street('COLLINS ST',1430,-206),
-    street('FLINDERS ST',570,9),street('FLINDERS ST',1565,9),
-    street('QUEEN ST',692,-710,-90),street('WILLIAM ST',464,-420,-90),
-    street('KING ST',235,-357,-90),street('ELIZABETH ST',918,-494,-90),
-    street('SWANSTON ST',1150,-582,-90),street('RUSSELL ST',1382,-888,-90),
-    street('EXHIBITION ST',1612,-500,-90),street('SPRING ST',1835,-335,-90),
-    street('VICTORIA ST',652,-1191),street('FRANKLIN ST',320,-1081)
+    street('ui.map.street.flinders',245,9),street('ui.map.street.flinders',1410,9),
+    street('ui.map.street.collins',180,-206),street('ui.map.street.collins',1580,-206),
+    street('ui.map.street.swanston',1150,-975,-90),street('ui.map.street.swanston',1150,-444,-90),
+    street('ui.map.street.spring',1835,-600,-90),
+    street('ui.map.street.la-trobe',480,-854),street('ui.map.street.la-trobe',1490,-854),
+    street('ui.map.street.lonsdale',300,-639),street('ui.map.street.lonsdale',1450,-640),
+    street('ui.map.street.bourke',650,-424),street('ui.map.street.bourke',1620,-424),
+    street('ui.map.street.collins',470,-206),street('ui.map.street.collins',1430,-206),
+    street('ui.map.street.flinders',570,9),street('ui.map.street.flinders',1565,9),
+    street('ui.map.street.queen',692,-710,-90),street('ui.map.street.william',464,-420,-90),
+    street('ui.map.street.king',235,-357,-90),street('ui.map.street.elizabeth',918,-494,-90),
+    street('ui.map.street.swanston',1150,-582,-90),street('ui.map.street.russell',1382,-888,-90),
+    street('ui.map.street.exhibition',1612,-500,-90),street('ui.map.street.spring',1835,-335,-90),
+    street('ui.map.street.victoria',652,-1191),street('ui.map.street.franklin',320,-1081)
   ];
   return `<g transform="${gridTransform}">${pieces.join('')}</g>`+
-    district('SOUTHBANK','САУТБАНК',-330,925,lang)+district('CARLTON','КАРЛТОН',500,-1020,lang)+
-    district('MELBOURNE','МЕЛЬБУРН',-400,-22,lang);
+    district('ui.map.southbank',-330,925)+district('ui.map.carlton',500,-1020)+
+    district('ui.map.melbourne',-400,-22);
 }
 
-function basemap(lang,uid) {
+function basemap(lang,uid,sitesById) {
   return `<defs>
     <pattern id="${uid}-trees" patternUnits="userSpaceOnUse" width="65" height="61"><circle cx="14" cy="14" r="7" fill="#acbf99"/><circle cx="49" cy="29" r="6" fill="#b8cda6"/><circle cx="24" cy="52" r="7" fill="#b0c69e"/></pattern>
     <filter id="${uid}-shadow" x="-60%" y="-45%" width="220%" height="215%"><feDropShadow dx="0" dy="1.1" stdDeviation="1.2" flood-color="#414632" flood-opacity=".26"/></filter>
   </defs>
   <g aria-hidden="true"><rect x="-4000" y="-4000" width="8000" height="8000" fill="#f3f1e6"/>
-    ${neighbourhood()}${cityGrid()}${railway()}${greenSpaces(lang,uid)}${river(lang)}${cityLabels(lang)}
-    ${parks.map(({name,center})=>{
+    ${neighbourhood()}${cityGrid()}${railway()}${greenSpaces(uid,sitesById)}${river(lang)}${cityLabels(lang)}
+    ${parks.map(({id,center})=>{
+      const site=sitesById.get(id);
+      if(!site)return '';
       const [x,y]=geoxy(...center);
-      return `<text class="map-park" x="${x}" y="${y}">${esc(name[lang==='ru'?1:0])}</text>`;
+      return `<text class="map-park" data-park-label="${id}" x="${x}" y="${y}">${esc(site.name[lang]??site.name.en)}</text>`;
     }).join('')}
   </g>`;
 }
@@ -191,16 +194,16 @@ function placePins(sites,unitsPerPixel) {
 
 export function mountMap(container,{sites=[],lang='en',selected=null,onSelect=()=>{},userLocation=null}={}) {
   const uid=`melb-map-${++sequence}`;
-  const ru=lang==='ru';
   const el=document.createElement('div');
   el.className='cbd-map';
   el.tabIndex=0;
   el.setAttribute('role','region');
-  el.setAttribute('aria-label',ru?'Интерактивная карта центра Мельбурна':'Interactive map of Melbourne CBD');
+  el.setAttribute('aria-label',text('ui.map.region',lang));
   const svg=document.createElementNS(NS,'svg');
   svg.setAttribute('width','100%');
   svg.setAttribute('height','100%');
-  svg.innerHTML=basemap(lang,uid)+`<g data-position></g><g data-leaders aria-hidden="true"></g><g data-markers></g>`;
+  const sitesById=new Map(sites.map(site=>[site.id,site]));
+  svg.innerHTML=basemap(lang,uid,sitesById)+`<g data-position></g><g data-leaders aria-hidden="true"></g><g data-markers></g>`;
   el.append(svg); container.append(el);
 
   const scene=svg.querySelector('[data-markers]');
@@ -209,7 +212,10 @@ export function mountMap(container,{sites=[],lang='en',selected=null,onSelect=()
   let chosen=selected, position=coordOf(userLocation);
   let centre=geoxy(-37.81405,144.9642), level=1, overview=true;
   let worldWidth=0,worldHeight=0, scale=1,width=1,height=1;
-  let lastScale=0;
+  let lastScale=0, overviewScale=1, overviewCentre=centre;
+  let previousWidth=0, previousHeight=0;
+  const positions=sites.map(site=>geoxy(site.lat,site.lon));
+  const controls=Array.from(container.closest('.map-view')?.querySelectorAll('.map-controls,.map-tag,.north')??[]);
   let preventClick=false, start=null;
   const pointers=new Map();
 
@@ -223,9 +229,13 @@ export function mountMap(container,{sites=[],lang='en',selected=null,onSelect=()
   const labels=Array.from(svg.querySelectorAll('.map-water,.map-street,.map-park,.map-district'));
   const rank=node=>node.classList.contains('map-water')?0:node.classList.contains('map-park')?1:node.classList.contains('map-district')?2:3;
   labels.sort((a,b)=>rank(a)-rank(b));
+  function visibleControls(){
+    return controls.map(node=>node.getBoundingClientRect()).filter(box=>box.width&&box.height);
+  }
   function fitLabels(){
     const bounds=svg.getBoundingClientRect();
     const used=Array.from(scene.querySelectorAll('.pin-body'),node=>node.getBoundingClientRect());
+    used.push(...visibleControls());
     const listed=new Set();
     const positions=labels.map(node=>[node,node.getBoundingClientRect()]);
     for(const [node,rect] of positions){
@@ -237,12 +247,43 @@ export function mountMap(container,{sites=[],lang='en',selected=null,onSelect=()
       if(show){used.push(rect);listed.add(node.textContent);}
     }
   }
+  function fitOverview(){
+    if(!positions.length)return;
+    const xs=positions.map(p=>p[0]),ys=positions.map(p=>p[1]);
+    const west=Math.min(...xs),east=Math.max(...xs),north=Math.min(...ys),south=Math.max(...ys);
+    const viewport=el.getBoundingClientRect();
+    const overlays=visibleControls();
+    // Insets allow for each pin's body extending above its point. Start with
+    // the full illustration, reserving an overlay's strip only if it covers a pin.
+    let left=22,right=22,top=44,bottom=19;
+    for(let attempt=0;attempt<4;attempt++){
+      overviewScale=Math.max(Math.max(500,east-west)/Math.max(1,width-left-right),Math.max(450,south-north)/Math.max(1,height-top-bottom));
+      overviewCentre=[(west+east)/2+(right-left)*overviewScale/2,(north+south)/2+(bottom-top)*overviewScale/2];
+      const pins=placePins(sites,overviewScale);
+      const centreX=overviewCentre[0]/overviewScale,centreY=overviewCentre[1]/overviewScale;
+      let touched=false;
+      for(const box of overlays){
+        const conflict=pins.some(pin=>{
+          const x=viewport.left+width/2+pin.x-centreX,y=viewport.top+height/2+pin.y-centreY;
+          return x+19>box.left&&x-19<box.right&&y+6>box.top&&y-37<box.bottom;
+        });
+        if(!conflict)continue;
+        touched=true;
+        if(box.left>viewport.left+width/2)right=Math.max(right,viewport.right-box.left+22);
+        else if(box.top>viewport.top+height/2)bottom=Math.max(bottom,viewport.bottom-box.top+11);
+        else top=Math.max(top,box.bottom-viewport.top+43);
+      }
+      if(!touched)break;
+    }
+  }
   function draw(){
     width=Math.max(1,el.clientWidth);height=Math.max(1,el.clientHeight);
-    // Always include all eight landmarks on first load, even on a phone in portrait.
     const phone=width<500;
-    if(overview)centre=geoxy(phone?-37.81285:-37.81405,144.9642);
-    scale=Math.max(1700/width,(phone?2140:1990)/height)/level;
+    if(width!==previousWidth||height!==previousHeight){
+      fitOverview();previousWidth=width;previousHeight=height;
+    }
+    if(overview)centre=overviewCentre;
+    scale=overviewScale/level;
     worldWidth=width*scale; worldHeight=height*scale;
     svg.setAttribute('viewBox',`${centre[0]-worldWidth/2} ${centre[1]-worldHeight/2} ${worldWidth} ${worldHeight}`);
     if(lastScale!==scale){
@@ -251,6 +292,12 @@ export function mountMap(container,{sites=[],lang='en',selected=null,onSelect=()
       }
       const previousFocus=document.activeElement?.closest?.('[data-site]')?.dataset.site;
       const pins=placePins(sites,scale);
+      for(const label of svg.querySelectorAll('[data-park-label]')){
+        const pin=pins.find(p=>p.site.id===label.dataset.parkLabel);
+        const x=Number(label.getAttribute('x'))/scale,y=Number(label.getAttribute('y'))/scale;
+        const nearPin=pin&&Math.hypot(pin.x-x,pin.y-y)<50;
+        label.setAttribute('dy',nearPin?Math.max(0,pin.y+15-y)*scale:0);
+      }
       scene.innerHTML=pins.map(p=>{
         const label=p.site.name?.[lang]??p.site.name?.en??p.site.id;
         return `<g role="button" tabindex="0" data-site="${esc(p.site.id)}" class="map-marker" aria-label="${esc(p.site.number+'. '+label)}" transform="translate(${p.x*scale} ${p.y*scale}) scale(${scale})">
@@ -265,7 +312,7 @@ export function mountMap(container,{sites=[],lang='en',selected=null,onSelect=()
       if(previousFocus)Array.from(scene.children).find(n=>n.dataset.site===previousFocus)?.focus({preventScroll:true});
       lastScale=scale;
     }
-    visitor.innerHTML=position?`<g transform="translate(${position.join(' ')}) scale(${scale})"><title>${ru?'Ваше местоположение':'Your location'}</title><circle r="12" fill="#4c8baf" opacity=".23"/><circle r="5.3" fill="#3784af" stroke="#fff" stroke-width="2"/></g>`:'';
+    visitor.innerHTML=position?`<g transform="translate(${position.join(' ')}) scale(${scale})"><title>${esc(text('ui.map.location',lang))}</title><circle r="12" fill="#4c8baf" opacity=".23"/><circle r="5.3" fill="#3784af" stroke="#fff" stroke-width="2"/></g>`:'';
     fitLabels();
   }
   function setCentre(x,y){
@@ -277,11 +324,13 @@ export function mountMap(container,{sites=[],lang='en',selected=null,onSelect=()
   }
   function select(id){
     chosen=id;styleSelection();
-    const site=sites.find(s=>s.id===id);
+    const site=sitesById.get(id);
     if(!site)return;
-    const [x,y]=geoxy(site.lat,site.lon);
-    if(Math.abs(x-centre[0])>worldWidth/2-22*scale || Math.abs(y-centre[1])>worldHeight/2-38*scale){
-      setCentre(x,y);draw();
+    const pin=scene.querySelector('[aria-pressed="true"] .pin-body')?.getBoundingClientRect();
+    const bounds=svg.getBoundingClientRect();
+    const visible=pin&&pin.left>=bounds.left+2&&pin.right<=bounds.right-2&&pin.top>=bounds.top+2&&pin.bottom<=bounds.bottom-2;
+    if(!visible||visibleControls().some(box=>pin.left<box.right&&pin.right>box.left&&pin.top<box.bottom&&pin.bottom>box.top)){
+      setCentre(...geoxy(site.lat,site.lon));draw();
     }
   }
   function locate(coords){
@@ -296,9 +345,10 @@ export function mountMap(container,{sites=[],lang='en',selected=null,onSelect=()
     setCentre(...position);draw();return true;
   }
   function activate(target){
-    const node=target.closest?.('[data-site]');
-    if(node&&scene.contains(node)){
-      select(node.dataset.site);onSelect(node.dataset.site);
+    const node=target.closest?.('[data-site],[data-park-site]');
+    if(node&&svg.contains(node)){
+      const id=node.dataset.site??node.dataset.parkSite;
+      select(id);onSelect(id);
       return true;
     }
     return false;

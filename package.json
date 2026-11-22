@@ -8,6 +8,12 @@
     "start": "node server.mjs",
     "prepare:offline": "node scripts/prepare-offline.mjs",
     "test": "node --test tests/*.test.mjs",
-    "voice:generate": "node scripts/generate-audio.mjs"
+    "voice:generate": "node scripts/generate-audio.mjs",
+    "content:build": "node scripts/build-content.mjs",
+    "predev": "npm run content:build",
+    "prestart": "npm run content:build",
+    "pretest": "npm run content:build",
+    "prevoice:generate": "npm run content:build",
+    "preprepare:offline": "npm run content:build"
   }
 }

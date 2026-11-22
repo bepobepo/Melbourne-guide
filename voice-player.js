@@ -1,31 +1,9 @@
+import {text} from './guide-copy.js';
 import { completeMp3 } from './mp3.js';
 import { getTrack, assetPath } from './voice-tracks.js';
 import { voiceEndpoint } from './voice-config.js';
 
 const cacheName = 'melbourne-field-guide-audio-v1';
-const copy = {
-  en: {
-    listen: 'Listen to the guide', retry: 'Try again', loading: 'Loading audio…',
-    streaming: 'Streaming audio…', saved: 'Available offline on this device.',
-    ready: 'Audio ready.', tap: 'Press play to listen.',
-    missing: 'This recording isn’t available yet.',
-    unconfigured: 'Audio narration hasn’t been set up yet.',
-    changed: 'The recording has changed. Reopen the updated guide and try again.',
-    offline: 'Connect to the internet to download this recording for the first time.',
-    error: 'The recording couldn’t be loaded. Please try again.'
-  },
-  ru: {
-    listen: 'Слушать аудиогид', retry: 'Попробовать снова', loading: 'Загружаем аудиозапись…',
-    streaming: 'Воспроизводим аудиозапись…', saved: 'Аудиозапись доступна на этом устройстве без интернета.',
-    ready: 'Аудиозапись готова.', tap: 'Нажмите кнопку воспроизведения.',
-    missing: 'Эта аудиозапись пока недоступна.',
-    unconfigured: 'Аудиогид пока не настроен.',
-    changed: 'Аудиозапись обновилась. Откройте обновлённый путеводитель и попробуйте снова.',
-    offline: 'Чтобы впервые загрузить эту аудиозапись, подключитесь к интернету.',
-    error: 'Не удалось загрузить аудиозапись. Попробуйте ещё раз.'
-  }
-};
-
 let disposeCurrent;
 
 export function stopVoice() {
@@ -146,18 +124,18 @@ async function download(track, signal, player) {
 
 export function mountVoice(container, { id, lang }) {
   stopVoice();
-  const words = copy[lang] || copy.en;
+  const word = key => text('ui.voice.' + key, lang);
   const root = document.createElement('section');
   root.className = 'voice-player';
-  root.setAttribute('aria-label', words.listen);
+  root.setAttribute('aria-label', word('listen'));
   const button = document.createElement('button');
   button.type = 'button';
-  button.textContent = words.listen;
+  button.textContent = word('listen');
   const audio = document.createElement('audio');
   audio.controls = true;
   audio.preload = 'auto';
   audio.hidden = true;
-  audio.setAttribute('aria-label', words.listen);
+  audio.setAttribute('aria-label', word('listen'));
   const status = document.createElement('p');
   status.setAttribute('role', 'status');
   root.append(button, audio, status);
@@ -181,7 +159,7 @@ export function mountVoice(container, { id, lang }) {
   };
   if (!track) {
     button.hidden = true;
-    status.textContent = words.missing;
+    status.textContent = word('missing');
     return;
   }
 
@@ -197,12 +175,12 @@ export function mountVoice(container, { id, lang }) {
     audio.hidden = false;
     button.hidden = true;
     if (moveFocus) audio.focus({ preventScroll: true });
-    if (streaming) status.textContent = words.streaming;
+    if (streaming) status.textContent = word('streaming');
     try { await audio.play(); }
     catch (err) {
       if (!signal.aborted && err.name === 'NotAllowedError') {
         autoplayBlocked = true;
-        status.textContent = words.tap;
+        status.textContent = word('tap');
       }
     }
   }
@@ -213,7 +191,7 @@ export function mountVoice(container, { id, lang }) {
     const { signal } = controller;
     button.disabled = true;
     autoplayBlocked = false;
-    status.textContent = words.loading;
+    status.textContent = word('loading');
     try {
       const cacheKey = new URL('./.voice-cache/' + encodeURIComponent(assetPath(track)), import.meta.url).href;
       let cache;
@@ -229,7 +207,7 @@ export function mountVoice(container, { id, lang }) {
       abortIfStopped(signal);
       if (blob) {
         setSource(blob);
-        status.textContent = words.saved;
+        status.textContent = word('saved');
         void play(signal);
         return;
       }
@@ -246,14 +224,14 @@ export function mountVoice(container, { id, lang }) {
           stored = true;
         } catch { /* Saving is optional, playback remains available. */ }
       }
-      if (!signal.aborted && !autoplayBlocked) status.textContent = stored ? words.saved : words.ready;
+      if (!signal.aborted && !autoplayBlocked) status.textContent = stored ? word('saved') : word('ready');
     } catch (err) {
       if (signal.aborted) return;
       controller.abort();
       resetSource();
       audio.hidden = true;
-      status.textContent = !navigator.onLine ? words.offline : words[err.messageKey] || words.error;
-      button.textContent = words.retry;
+      status.textContent = !navigator.onLine ? word('offline') : word(err.messageKey || 'error');
+      button.textContent = word('retry');
       button.hidden = false;
       button.disabled = false;
     }

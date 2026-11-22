@@ -61,7 +61,7 @@ if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) 
     const result = await generateAudio({ directory, apiKey: process.env.INWORLD_API_KEY });
     console.log('Recordings ready. Generated ' + result.generated + ', reused ' + result.reused + '.');
   } catch (error) {
-    console.error(error.message);
+    console.error((process.env.GITHUB_ACTIONS ? '::error::' : '') + error.message.replace(/[\r\n]/g, ' '));
     process.exitCode = 1;
   }
 }

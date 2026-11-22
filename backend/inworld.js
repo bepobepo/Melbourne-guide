@@ -1,3 +1,4 @@
+import { completeMp3, joinMp3 } from '../mp3.js';
 import { TTS_SETTINGS } from '../voice-tracks.js';
 
 const ENDPOINT = 'https://api.inworld.ai/tts/v1/voice:stream';
@@ -92,7 +93,7 @@ async function* parseAudio(body) {
  * synthesis completed: consumers must read to clean EOF before publishing/caching.
  * `fetch` is injectable for tests. Abort and timeout cover headers AND the body.
  */
-export async function synthesize(track, apiKey, options = {}) {
+async function synthesizePart(track, apiKey, options) {
   if (typeof apiKey !== 'string' || !apiKey.trim() || /[\r\n]/.test(apiKey)) {
     throw new InworldError('voice_not_configured', 503);
   }
@@ -166,5 +167,57 @@ export async function synthesize(track, apiKey, options = {}) {
     controller.abort();
     cleanup();
     throw failure;
+  }
+}
+
+// Keep each provider request within 2,000 UTF-16 code units, even for emoji.
+// Prefer paragraph and sentence endings, then whitespace, then a code-point boundary.
+const PART_LIMIT = 2000;
+function splitNarration(text) {
+  const parts = [];
+  let remaining = text.trim();
+  while (remaining.length > PART_LIMIT) {
+    const window = remaining.slice(0, PART_LIMIT + 1);
+    const matches = pattern => [...window.matchAll(pattern)].map(m => m.index + m[0].trimEnd().length)
+      .filter(i => i > 0 && i <= PART_LIMIT).at(-1);
+    const paragraph = matches(/\n\s*\n/g);
+    let end = paragraph >= PART_LIMIT / 2 ? paragraph :
+      matches(/[.!?…][»”"')]*\s+/gu) || paragraph || matches(/\s+/gu) || PART_LIMIT;
+    if (/[\uD800-\uDBFF]/u.test(remaining[end - 1])) end--;
+    parts.push(remaining.slice(0, end).trimEnd());
+    remaining = remaining.slice(end).trimStart();
+  }
+  if (remaining) parts.push(remaining);
+  return parts;
+}
+
+export async function synthesize(track, apiKey, options = {}) {
+  if (typeof track?.text !== 'string' || !track.text.trim() || track.text.length <= PART_LIMIT || track.text.length > 20000) {
+    return synthesizePart(track, apiKey, options);
+  }
+  const encoded = [];
+  let total = 0;
+  for (const text of splitNarration(track.text)) {
+    const stream = await synthesizePart({ ...track, text }, apiKey, options);
+    const chunks = [];
+    let length = 0;
+    for await (const chunk of stream) {
+      total += chunk.length;
+      length += chunk.length;
+      if (total > MAX_AUDIO_BYTES) throw new InworldError('provider_response_too_large');
+      chunks.push(chunk);
+    }
+    const part = new Uint8Array(length);
+    let offset = 0;
+    for (const chunk of chunks) { part.set(chunk, offset); offset += chunk.length; }
+    if (!completeMp3(part)) throw new InworldError('invalid_segmented_audio');
+    encoded.push(part);
+  }
+  try {
+    const audio = joinMp3(encoded);
+    if (audio.length > MAX_AUDIO_BYTES) throw new InworldError('provider_response_too_large');
+    return new ReadableStream({ start(controller) { controller.enqueue(audio); controller.close(); } });
+  } catch (error) {
+    throw error instanceof InworldError ? error : new InworldError('invalid_segmented_audio');
   }
 }

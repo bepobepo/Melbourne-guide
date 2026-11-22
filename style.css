@@ -37,3 +37,5 @@ dialog{background:var(--panel);color:var(--ink);padding:0;border:1px solid #c3c9
 @media(max-width:760px){.map-tag{display:none}.place-card{min-height:113px}.card-description{font-size:12px}.directory .place-card{min-height:87px}}
 @media(max-width:480px){.hero-picture{width:84px;top:11px}.card-photo{width:28%}.card-distance{font-size:11px}.card-copy strong{font-size:20px}.card-arrow{margin-left:0;margin-right:8px}}
 @media(min-width:1101px){#near-cards .card-copy{gap:4px;padding-block:7px}.card-description{flex-shrink:0}}
+.place-category.parks{color:#465f31}.place-category.parks i{background:#73934e}
+.site-image{margin:0}.site-image-caption{padding:7px clamp(18px,4vw,32px);background:var(--paper);color:var(--muted);font-size:12px;line-height:1.5}

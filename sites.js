@@ -1,227 +1,128 @@
-// Coordinates mark a public-facing entrance or viewing point for each stop.
-export const sites = [
+import { sections } from './guide-copy.js';
+
+// Coordinates mark a public viewing point. All visitor-facing place text lives in GUIDE.md.
+const mapStops = [
   {
-    id: 'flinders',
-    number: 1,
-    lat: -37.81798,
-    lon: 144.96709,
-    category: 'architecture',
-    name: { en: 'Flinders Street Station', ru: 'Вокзал Флиндерс-стрит' },
-    summary: {
-      en: 'Meet beneath the clocks at Melbourne’s golden railway landmark.',
-      ru: 'Встретьтесь под часами у золотистого фасада главного вокзала Мельбурна.',
-    },
-    history: {
-      en: 'A train left this corner for Sandridge, now Port Melbourne, in 1854. The domed station you see today opened in 1910. For generations, Melburnians arranging to meet here have simply said “under the clocks”.',
-      ru: 'В 1854 году отсюда отправился поезд в Сэндридж, нынешний Порт-Мельбурн. Здание вокзала с куполом открылось в 1910 году. Уже не одно поколение горожан назначает здесь встречи, говоря просто «под часами».',
-    },
-    question: {
-      en: 'Look at the row of clocks above the main steps. Why would a station need so many?',
-      ru: 'Посмотрите на ряд часов над главным входом. Как вы думаете, зачем вокзалу столько циферблатов?',
-    },
-    answer: {
-      en: 'Each clock was used to show the next train departure for a different suburban line. Passengers could choose their train before they even stepped inside.',
-      ru: 'Каждые часы показывали время отправления ближайшего поезда по отдельной пригородной линии. Пассажиры могли выбрать поезд ещё до входа на вокзал.',
-    },
-    address: 'Flinders St & Swanston St',
-    alt: { en: 'The golden station façade and green dome above the corner entrance', ru: 'Золотистый фасад вокзала и зелёный купол над угловым входом' },
-    source: 'https://en.wikipedia.org/wiki/Flinders_Street_railway_station',
-    image: './assets/flinders.jpg',
+    "id": "flinders",
+    "number": 1,
+    "category": "architecture",
+    "lat": -37.81798,
+    "lon": 144.96709,
+    "image": "./assets/flinders.jpg"
   },
   {
-    id: 'library',
-    number: 2,
-    lat: -37.81026,
-    lon: 144.96452,
-    category: 'culture',
-    name: { en: 'State Library Victoria', ru: 'Библиотека штата Виктория' },
-    summary: {
-      en: 'Step inside a public library built around the joy of discovery.',
-      ru: 'Загляните в публичную библиотеку, где читают мельбурнцы с 1856 года.',
-    },
-    history: {
-      en: 'Melbourne’s public library opened in 1856, when gold was drawing newcomers to Victoria. Its great domed reading room opened in 1913. Today the room bears the name of Charles La Trobe, Victoria’s first lieutenant-governor.',
-      ru: 'Публичная библиотека открылась в 1856 году, когда золото привлекало в Викторию тысячи переселенцев. Знаменитый читальный зал под куполом открылся в 1913 году. Сегодня он носит имя Чарльза Латроба, первого вице-губернатора Виктории.',
-    },
-    question: {
-      en: 'If the La Trobe Reading Room is open, look at its desks from the gallery. Which way do the rows point?',
-      ru: 'Если читальный зал Латроба открыт, посмотрите на столы с верхней галереи. Куда направлены их ряды?',
-    },
-    answer: {
-      en: 'The desks radiate from the centre like spokes in a wheel. Daylight enters from high above, reaching readers across the octagonal room.',
-      ru: 'Столы расходятся от центра, как спицы колеса. Дневной свет падает сверху и освещает весь восьмиугольный зал.',
-    },
-    address: '328 Swanston St',
-    alt: { en: 'White tiers of galleries beneath the reading room’s glazed dome', ru: 'Белые ярусы галерей под остеклённым куполом читального зала' },
-    source: 'https://www.slv.vic.gov.au/',
-    image: './assets/library.jpg',
+    "id": "library",
+    "number": 2,
+    "category": "culture",
+    "lat": -37.81026,
+    "lon": 144.96452,
+    "image": "./assets/library.jpg"
   },
   {
-    id: 'block',
-    number: 3,
-    lat: -37.81579,
-    lon: 144.96418,
-    category: 'architecture',
-    name: { en: 'The Block Arcade', ru: 'Пассаж Блок-Аркейд' },
-    summary: {
-      en: 'Follow a mosaic floor through a Victorian shopping arcade.',
-      ru: 'Пройдите по мозаичному полу торговой галереи викторианской эпохи.',
-    },
-    history: {
-      en: 'In the late nineteenth century, fashionable Melburnians strolled this stretch of Collins Street to see friends and be seen. They called it “doing the Block”. Built in the 1890s, the arcade took its name from that social ritual.',
-      ru: 'В конце XIX века нарядные горожане прогуливались по Коллинз-стрит, чтобы встретить знакомых и показать себя. Выражение «doing the Block» означало такую прогулку вокруг квартала. От него и получил название пассаж, построенный в 1890-х годах.',
-    },
-    question: {
-      en: 'At the bend in the arcade, look down at the mosaic. Can you find a shape that repeats?',
-      ru: 'На повороте галереи посмотрите на мозаичный пол. Какой узор здесь повторяется?',
-    },
-    answer: {
-      en: 'Look for the flowers, curling stems and geometric borders made from tiny tiles. Try tracing a single stem with your eyes to see how the pattern fits together.',
-      ru: 'Из маленьких плиток сложены цветы, вьющиеся стебли и геометрические бордюры. Проследите взглядом за одним стеблем: куда ведёт узор?',
-    },
-    address: '282 Collins St',
-    alt: { en: 'Ornate arches above the shopfronts in the Block Arcade', ru: 'Узорчатые арки над витринами в пассаже Блок-Аркейд' },
-    source: 'https://theblock.com.au/',
-    image: './assets/block.jpg',
+    "id": "block",
+    "number": 3,
+    "category": "architecture",
+    "lat": -37.81579,
+    "lon": 144.96418,
+    "image": "./assets/block.jpg"
   },
   {
-    id: 'federation',
-    number: 4,
-    lat: -37.81789,
-    lon: 144.96910,
-    category: 'culture',
-    name: { en: 'Federation Square', ru: 'Площадь Федерации' },
-    summary: {
-      en: 'Explore a riverside meeting place set above working railway lines.',
-      ru: 'Исследуйте площадь на берегу реки, построенную над железнодорожными путями.',
-    },
-    history: {
-      en: 'The square opened in 2002 on a deck built over railway tracks. Its name recalls the federation of Australia in 1901, when six colonies joined to form one country. Melbourne hosted the new federal parliament until it moved to Canberra in 1927.',
-      ru: 'Площадь открылась в 2002 году на платформе над железнодорожными путями. Её название напоминает о 1901 годе, когда шесть колоний объединились в Австралийский Союз. Федеральный парламент заседал в Мельбурне до переезда в Канберру в 1927 году.',
-    },
-    question: {
-      en: 'Study one of the patterned façades. What small shape can you spot inside the larger panels?',
-      ru: 'Присмотритесь к узору на одном из фасадов. Из каких небольших фигур состоят крупные панели?',
-    },
-    answer: {
-      en: 'Look for triangles. The architects arranged pieces of sandstone, glass and zinc into repeating triangular patterns at several different scales.',
-      ru: 'Ищите треугольники. Архитекторы собрали элементы из песчаника, стекла и цинка в треугольные узоры разного размера.',
-    },
-    address: 'Swanston St & Flinders St',
-    alt: { en: 'The paved plaza of Federation Square with its angular modern buildings', ru: 'Мощёная площадь Федерации и её здания с угловатыми фасадами' },
-    source: 'https://fedsquare.com/',
-    image: './assets/federation.jpg',
+    "id": "federation",
+    "number": 4,
+    "category": "culture",
+    "lat": -37.81789,
+    "lon": 144.9691,
+    "image": "./assets/federation.jpg"
   },
   {
-    id: 'cathedral',
-    number: 5,
-    lat: -37.81704,
-    lon: 144.96754,
-    category: 'architecture',
-    name: { en: 'St Paul’s Cathedral', ru: 'Собор Святого Павла' },
-    summary: {
-      en: 'Spot three Gothic spires above a busy city intersection.',
-      ru: 'Найдите три готических шпиля над оживлённым городским перекрёстком.',
-    },
-    history: {
-      en: 'Designed by English architect William Butterfield, this Anglican cathedral was consecrated in 1891. For decades it stood without its three distinctive spires. They were completed in the early 1930s, changing the city skyline.',
-      ru: 'Англиканский собор по проекту английского архитектора Уильяма Баттерфилда освятили в 1891 году. Несколько десятилетий он стоял без трёх узнаваемых шпилей. Их завершили в начале 1930-х годов, и силуэт города изменился.',
-    },
-    question: {
-      en: 'Look up from the body of the cathedral to the spires. Does the stone stay the same colour?',
-      ru: 'Переведите взгляд со стен собора на шпили. Как меняется цвет камня?',
-    },
-    answer: {
-      en: 'The later spires use a different stone from the main building. The shift in colour gives you a clue that you are looking at two periods of construction.',
-      ru: 'Шпили возвели позже из другого камня. Разница в оттенках помогает увидеть, какие части собора строили в разное время.',
-    },
-    address: 'Flinders St & Swanston St',
-    alt: { en: 'A sandstone tower of St Paul’s Cathedral seen from the street', ru: 'Вид с улицы на башню собора Святого Павла из песчаника' },
-    source: 'https://cathedral.org.au/',
-    image: './assets/cathedral.jpg',
+    "id": "cathedral",
+    "number": 5,
+    "category": "architecture",
+    "lat": -37.81704,
+    "lon": 144.96754,
+    "image": "./assets/cathedral.jpg"
   },
   {
-    id: 'immigration',
-    number: 6,
-    lat: -37.8190118,
-    lon: 144.9603154,
-    category: 'history',
-    name: { en: 'Immigration Museum', ru: 'Музей иммиграции' },
-    summary: {
-      en: 'Meet the people who made Victoria home in the Old Customs House.',
-      ru: 'В здании бывшей таможни хранятся истории людей, для которых Виктория стала домом.',
-    },
-    history: {
-      en: 'Ships once sailed up the Yarra to unload close to this spot. In the Customs House, merchants declared their cargo and paid duties on imported goods. In 1998 the building opened as the Immigration Museum, where people share their experiences of leaving one home and making another.',
-      ru: 'Когда-то корабли поднимались по Ярре и разгружались неподалёку отсюда. В таможне купцы декларировали товары и платили пошлины. В 1998 году в этом здании открылся Музей иммиграции. Здесь собраны рассказы людей, которые покинули родные места и обрели новый дом в Австралии.',
-    },
-    question: {
-      en: 'Standing outside on Flinders Street, find the direction of the river on your map. Why would a customs house be built here?',
-      ru: 'Остановитесь перед зданием на Флиндерс-стрит и найдите на карте реку. Почему таможню построили именно здесь?',
-    },
-    answer: {
-      en: 'The Yarra was a busy route for cargo. Having the customs offices close to the wharves made it easier to inspect goods and collect duties as they arrived.',
-      ru: 'По Ярре в город доставляли грузы. Близость к причалам позволяла досматривать товары и взимать пошлины сразу по прибытии.',
-    },
-    address: '400 Flinders St',
-    alt: { en: 'The Old Customs House on Flinders Street, home to the Immigration Museum', ru: 'Бывшая таможня на Флиндерс-стрит, в которой расположен Музей иммиграции' },
-    source: 'https://museumsvictoria.com.au/immigrationmuseum/',
-    image: './assets/immigration.jpg',
+    "id": "immigration",
+    "number": 6,
+    "category": "history",
+    "lat": -37.8190118,
+    "lon": 144.9603154,
+    "image": "./assets/immigration.jpg"
   },
   {
-    id: 'royal',
-    number: 7,
-    lat: -37.81467,
-    lon: 144.96431,
-    category: 'history',
-    name: { en: 'Royal Arcade', ru: 'Королевский пассаж' },
-    summary: {
-      en: 'Find the two clock guardians in Australia’s oldest surviving arcade.',
-      ru: 'Отыщите двух хранителей часов в старейшем сохранившемся пассаже Австралии.',
-    },
-    history: {
-      en: 'Royal Arcade opened in 1870, bringing a covered shopping promenade to the heart of the city. The figures known as Gog and Magog have watched over Gaunt’s clock since 1892.',
-      ru: 'Королевский пассаж открылся в 1870 году. В центре города появилось место, где можно было гулять и ходить по магазинам под крышей. С 1892 года над часами Гонта стоят фигуры Гога и Магога.',
-    },
-    question: {
-      en: 'Find the two giants above the clock. What are they holding, and what do you think it is for?',
-      ru: 'Найдите двух великанов над часами. Что у них в руках и для чего это нужно?',
-    },
-    answer: {
-      en: 'Each giant holds a hammer. They strike the bells to mark the passing hours. If you are here on the hour, pause for a listen.',
-      ru: 'У каждого великана в руках молот. Ими они ударяют в колокола, отбивая часы. Если приближается начало часа, остановитесь и послушайте.',
-    },
-    address: '335 Bourke St',
-    alt: { en: 'The arched glass roof and hanging lights of Royal Arcade', ru: 'Сводчатая стеклянная крыша и подвесные светильники Королевского пассажа' },
-    source: 'https://royalarcade.com.au/',
-    image: './assets/royal.jpg',
+    "id": "royal",
+    "number": 7,
+    "category": "history",
+    "lat": -37.81467,
+    "lon": 144.96431,
+    "image": "./assets/royal.jpg"
   },
   {
-    id: 'market',
-    number: 8,
-    lat: -37.80749,
-    lon: 144.95935,
-    category: 'history',
-    name: { en: 'Queen Victoria Market', ru: 'Рынок королевы Виктории' },
-    summary: {
-      en: 'Walk the market sheds that have fed Melbourne for generations.',
-      ru: 'Пройдите вдоль торговых рядов, где покупает продукты уже не одно поколение горожан.',
-    },
-    history: {
-      en: 'Queen Victoria Market officially opened in 1878. Some buildings are older still. The brick Meat Hall began trading in 1869 and became part of the larger market as it grew.',
-      ru: 'Рынок королевы Виктории официально открылся в 1878 году, но некоторые здания старше самого рынка. В кирпичном мясном павильоне торговали с 1869 года. Позже он стал частью разросшегося рынка.',
-    },
-    question: {
-      en: 'Compare the open-sided market sheds with the enclosed Meat Hall. How might each design suit its traders?',
-      ru: 'Сравните открытые торговые ряды с закрытым мясным павильоном. Чем каждый из них удобен для торговли?',
-    },
-    answer: {
-      en: 'The sheds give stalls shade, airflow and room for shoppers to move. The enclosed hall gives permanent counters and displays more shelter.',
-      ru: 'Под навесами есть тень, воздух свободно циркулирует, а между рядами удобно ходить. В закрытом павильоне постоянные прилавки и витрины лучше защищены от непогоды.',
-    },
-    address: 'Elizabeth St & Victoria St',
-    alt: { en: 'The ornate stone front of Queen Victoria Market', ru: 'Резной каменный фасад рынка королевы Виктории' },
-    source: 'https://qvm.com.au/',
-    image: './assets/market.jpg',
+    "id": "market",
+    "number": 8,
+    "category": "history",
+    "lat": -37.80749,
+    "lon": 144.95935,
+    "image": "./assets/market.jpg"
   },
+  {
+    "id": "flagstaff",
+    "number": 9,
+    "category": "parks",
+    "lat": -37.8104,
+    "lon": 144.95485,
+    "image": "./assets/flagstaff.jpg"
+  },
+  {
+    "id": "carlton",
+    "number": 10,
+    "category": "parks",
+    "lat": -37.8068,
+    "lon": 144.97146,
+    "image": "./assets/carlton.jpg"
+  },
+  {
+    "id": "treasury",
+    "number": 11,
+    "category": "parks",
+    "lat": -37.81365,
+    "lon": 144.97665,
+    "image": "./assets/treasury.jpg"
+  },
+  {
+    "id": "fitzroy",
+    "number": 12,
+    "category": "parks",
+    "lat": -37.81373,
+    "lon": 144.98003,
+    "image": "./assets/fitzroy.jpg"
+  },
+  {
+    "id": "birrarung",
+    "number": 13,
+    "category": "parks",
+    "lat": -37.81894,
+    "lon": 144.97315,
+    "image": "./assets/birrarung.jpg"
+  },
+  {
+    "id": "alexandra",
+    "number": 14,
+    "category": "parks",
+    "lat": -37.82142,
+    "lon": 144.9711,
+    "image": "./assets/alexandra.jpg"
+  }
 ];
+
+export const sites = mapStops.map(stop => {
+  const entry = sections['site.' + stop.id];
+  if (!entry) throw new Error('Missing guide entry for ' + stop.id);
+  const site = { ...stop, ...entry.details };
+  for (const field of ['name','summary','history','question','answer','alt']) {
+    site[field] = { en: entry.en[field], ru: entry.ru[field] };
+  }
+  if (entry.en.caption || entry.ru.caption) site.caption = {en:entry.en.caption, ru:entry.ru.caption};
+  return site;
+});
