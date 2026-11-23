@@ -120,15 +120,25 @@ function modal(content,accessibleName) {
   sheet.scrollTop=0;
   document.body.classList.add('modal-open');
 }
-function openSite(id,prompt=false,fromList=false) {
+function openSite(id,prompt=false,fromList=false,visited=new Set()) {
   const s=byId(id);if(!s)return;
+  visited.add(id);
+  if (visited.size === sites.length) visited = new Set([id]);
+  const next = sites.filter(site => !visited.has(site.id))
+    .sort((a, b) => distance(s, a) - distance(s, b))[0];
+  const nextButton = next ? `<button type="button" class="next-stop"><span><small>${label('site.next')}</small>
+    <strong>${next.number}. ${html(next.name[lang])}</strong></span>${icon('right',20)}</button>` : '';
   selected=id;map?.select(id);
   const field=document.querySelector('#field-note');if(field)field.innerHTML=fieldNote();
   const image = `<img class="detail-photo" src="${html(s.image)}" alt="${html(s.alt[lang])}">`;
   const caption = s.caption?.[lang];
   const figure = caption ? `<figure class="site-image">${image}<figcaption class="site-image-caption">${html(caption)}</figcaption></figure>` : image;
-  modal(`${figure}<div class="detail-body">${fromList?`<button class="back-list" data-all>← ${label('directory.title')}</button>`:''}<span class="place-category ${html(s.category)}"><i></i>${html(category(s.category))}</span><h2>${html(s.name[lang])}</h2><p class="detail-address">${icon('pin',16)} ${html(s.address)}</p><div class="site-voice"></div>${historyParagraphs(s.history[lang])}
-  <details class="question" ${prompt?'open':''}><summary>${icon('binoculars',20)} ${label('field.title')} ${icon('down',16)}</summary><p>${html(s.question[lang])}</p><button class="reveal" aria-expanded="false">${label('field.reveal')}</button><p class="answer" hidden>${html(s.answer[lang])}</p></details><div class="detail-links"><a href="https://www.google.com/maps/dir/?api=1&destination=${html(s.lat)},${html(s.lon)}&travelmode=walking" target="_blank" rel="noopener noreferrer">${icon('walk',17)} ${label('site.directions')} ${icon('arrowup',13)}</a><a href="${html(s.source)}" target="_blank" rel="noopener noreferrer">${label('site.readMore')} ${icon('arrowup',13)}</a></div></div>`,s.name[lang]);
+  modal(`${figure}<div class="detail-body">${fromList?`<button class="back-list" data-all>← ${label('directory.title')}</button>`:''}<span class="place-category ${html(s.category)}"><i></i>${html(category(s.category))}</span><h2 tabindex="-1">${html(s.name[lang])}</h2><p class="detail-address">${icon('pin',16)} ${html(s.address)}</p><div class="site-voice"></div>${historyParagraphs(s.history[lang])}
+  <details class="question" ${prompt?'open':''}><summary>${icon('binoculars',20)} ${label('field.title')} ${icon('down',16)}</summary><p>${html(s.question[lang])}</p><button class="reveal" aria-expanded="false">${label('field.reveal')}</button><p class="answer" hidden>${html(s.answer[lang])}</p></details><div class="detail-links"><a href="https://www.google.com/maps/dir/?api=1&destination=${html(s.lat)},${html(s.lon)}&travelmode=walking" target="_blank" rel="noopener noreferrer">${icon('walk',17)} ${label('site.directions')} ${icon('arrowup',13)}</a><a href="${html(s.source)}" target="_blank" rel="noopener noreferrer">${label('site.readMore')} ${icon('arrowup',13)}</a></div>${nextButton}</div>`,s.name[lang]);
+  if (next) sheet.querySelector('.next-stop').onclick = () => {
+    openSite(next.id, false, fromList, visited);
+    sheet.querySelector('.detail-body h2').focus({preventScroll:true});
+  };
   mountVoice(sheet.querySelector('.site-voice'), {id:'site/'+s.id, lang});
   sheet.querySelector('.reveal').onclick=e=>{ const a=sheet.querySelector('.answer');a.hidden=!a.hidden;e.currentTarget.setAttribute('aria-expanded',String(!a.hidden));e.currentTarget.textContent=a.hidden?u('field.reveal'):u('field.hide'); };
   if(prompt) sheet.querySelector('.question').scrollIntoView({block:'nearest'});
@@ -170,7 +180,7 @@ function render() {
   } else {
     main.innerHTML=renderGuide(view,lang);
     activateGuide(main,view,lang);
-    const anchor = view==='history' ? '.guide-heading' : '.transport-section h2';
+    const anchor = view==='history' ? '.guide-heading' : '.transport-section > summary';
     const player = document.createElement('div');
     main.querySelector(anchor).insertAdjacentElement('afterend',player);
     mountVoice(player,{id:view==='history'?'history':'transport',lang});

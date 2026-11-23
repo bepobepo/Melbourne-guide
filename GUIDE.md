@@ -1770,6 +1770,7 @@ On the tram network, an accessible journey needs both a level-access stop and a 
 | Key | English | Русский |
 | --- | --- | --- |
 | `ui.site.directions` | Walking directions | Пеший маршрут |
+| `ui.site.next` | Next stop | Следующая остановка |
 | `ui.site.readMore` | Read more | Подробнее |
 
 ### ui.voice

@@ -11,11 +11,16 @@
 .history-chapter { position: relative; margin: 0 0 29px; }
 .history-chapter::before { content: ''; position: absolute; width: 9px; height: 9px; border-radius: 50%; background: #647c5c; top: 6px; left: -23px; }
 .chapter-date { display: block; color: #6e593a; font-size: 12px; letter-spacing: .06em; font-weight: 700; margin-bottom: 6px; }
-.history-picture { position: sticky; top: 20px; margin: 0; }
+.history-picture { position: sticky; top: var(--header-clearance); margin: 0; }
 .history-picture img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 15px; background: #d8d9c8; }
 .history-picture figcaption { font-size: 13px; color: var(--guide-muted); margin-top: 8px; }
 .guide-section { padding: clamp(18px, 2.6vw, 32px); border: 1px solid var(--guide-line); border-radius: 18px; background: #fffef8; }
-.transport-section article { border-top: 1px solid var(--guide-line); padding: 19px 0; }
+.transport-section summary { cursor: pointer; }
+.transport-section > summary h2 { display: inline; margin: 0; vertical-align: middle; }
+.transport-topic { border-top: 1px solid var(--guide-line); }
+.transport-topic summary { padding: 13px 0; font-weight: 600; }
+.transport-topic p { margin-bottom: 14px; }
+.transport-links { display: flex; flex-wrap: wrap; gap: 10px 20px; border-top: 1px solid var(--guide-line); padding-top: 16px; }
 .guide-link { color: #395e49; text-underline-offset: .19em; font-weight: 600; font-size: 14px; }
 .guide-link:hover { color: #8a532b; }
 .currency-section { background: #eef0e5; }

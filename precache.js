@@ -1,5 +1,5 @@
 self.PRECACHE = {
-  "revision": "43b2fc4bc1ecd2d05379",
+  "revision": "e6a0b0c2fd06c543b441",
   "files": [
     "./app.js",
     "./assets/alexandra.jpg",
@@ -24,6 +24,7 @@ self.PRECACHE = {
     "./assets/immigration.jpg",
     "./assets/library.jpg",
     "./assets/market.jpg",
+    "./assets/melbourne-field-guide-social-v3.jpg",
     "./assets/photos.json",
     "./assets/royal.jpg",
     "./assets/station-engraving.webp",

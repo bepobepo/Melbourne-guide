@@ -97,11 +97,6 @@ export function renderGuide(view, lang = 'en') {
   return `<section class="guide-page" aria-labelledby="guide-heading">
     <header class="guide-heading"><h1 id="guide-heading">${c.infoTitle}</h1><p>${c.infoIntro}</p></header>
     <div class="local-layout">
-      <section class="guide-section transport-section"><h2>${c.transport}</h2>
-        ${c.sections.map(([title, text]) => `<article><h3>${title}</h3>${paragraphs(text)}</article>`).join('')}
-        ${externalLink('https://transport.vic.gov.au/journey', c.transportLink)}
-        ${externalLink('https://transport.vic.gov.au/tickets-and-myki', c.ticketLink)}
-      </section>
       <section class="guide-section currency-section" aria-labelledby="currency-heading">
         <h2 id="currency-heading">${c.converter}</h2>
         <label for="guide-amount">${c.label}</label>
@@ -111,6 +106,13 @@ export function renderGuide(view, lang = 'en') {
           ${currencyCodes.map((code, i) => `<div><dt><span class="guide-ccy">${code}</span><span>${c.currencies[i]}</span></dt><dd data-currency="${code}">${formatCurrency(rates.aud[code.toLowerCase()] * 100, code, lang)}</dd></div>`).join('')}
         </dl><p class="guide-rate-note">${html(rateNote(rates.date, lang))}</p>${externalLink(sourceUrl(rates.date.replaceAll('-', '.')), c.rateLink)}
       </section>
+      <details class="guide-section transport-section">
+        <summary><h2>${c.transport}</h2></summary>
+        ${c.sections.map(([title, text]) => `<details class="transport-topic" name="transport-topics">
+          <summary>${title}</summary>${paragraphs(text)}</details>`).join('')}
+        <div class="transport-links">${externalLink('https://transport.vic.gov.au/journey', c.transportLink)}
+          ${externalLink('https://transport.vic.gov.au/tickets-and-myki', c.ticketLink)}</div>
+      </details>
     </div></section>`;
 }
 
