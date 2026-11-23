@@ -90,13 +90,24 @@ function fieldNote(){
   const site=byId(selected);
   return `<div class="note-art" aria-hidden="true">${icon('binoculars',46)}</div><div class="note-copy"><span class="eyebrow">${label('field.label')}</span><h3>${label('field.title')}</h3><p>${html(site.question[lang])}</p></div><button data-prompt="${html(site.id)}" class="ink-btn">${label('field.open')} ${icon('right',16)}</button>`;
 }
+function walkingLoop() {
+  const stops = ['flinders', 'federation', 'hosier', 'cathedral', 'flinders'];
+  const items = stops.map((id, index) => {
+    const place = byId(id).name[lang];
+    const name = index === stops.length - 1 ? label('loop.return') : html(place);
+    return `<li><button data-site="${id}">${name}</button></li>`;
+  });
+  return `<details class="walking-loop"><summary>${label('loop.title')}</summary>
+    <p>${label('loop.intro')}</p><ol>${items.join('')}</ol></details>`;
+}
 function explore() {
  main.innerHTML=`<div class="wrap explore-page">
  <section class="hero"><div class="hero-copy"><div class="eyebrow geo-tag"><span></span>${label('hero.region')}</div><h1>${label('hero.lead')} <em>${label('hero.city')}</em><b>${label('hero.period')}</b></h1><p>${label('hero.description')}</p></div><div class="hero-picture"><img alt="" src="./assets/station-engraving.webp"><span>${label('hero.coordinates')}</span></div></section>
  <div class="discover-grid"><section class="map-section"><div class="heading-row"><h2>${icon('map',22)}${label('map.title')}</h2><span class="map-count"><i></i>${label('counts.' + new Intl.PluralRules(lang).select(sites.length), {count:sites.length})}</span></div>
  <div class="map-shell"><div class="map-view"><div id="map"></div><span class="map-tag">${icon('pin',13)} ${label('map.tag')}</span><div class="map-controls"><button id="zoom-in" aria-label="${label('map.zoomIn')}">${icon('plus',17)}</button><button id="zoom-out" aria-label="${label('map.zoomOut')}">${icon('minus',17)}</button></div><span class="north" aria-hidden="true">${label('map.north')}<i></i></span></div><div id="location-bar" aria-live="polite"></div></div></section>
  <section class="near-section"><div class="heading-row"><h2>${icon('pin',22)}<span id="near-title"></span></h2><button class="link-btn" data-all>${label('nearby.all')} ${icon('right',16)}</button></div><div id="near-cards"></div></section></div>
- <section class="field-note" id="field-note">${fieldNote()}</section></div>`;
+ <section class="field-note" id="field-note">${fieldNote()}</section>
+ ${walkingLoop()}</div>`;
   nearby();locationBar();updateMap();
   document.querySelector('#zoom-in').onclick=()=>map.zoom(1);
   document.querySelector('#zoom-out').onclick=()=>map.zoom(-1);

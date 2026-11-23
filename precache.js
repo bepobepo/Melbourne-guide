@@ -1,5 +1,5 @@
 self.PRECACHE = {
-  "revision": "012cc78dba6437d3625b",
+  "revision": "43b2fc4bc1ecd2d05379",
   "files": [
     "./app.js",
     "./assets/alexandra.jpg",
@@ -7,6 +7,7 @@ self.PRECACHE = {
     "./assets/block.jpg",
     "./assets/carlton.jpg",
     "./assets/cathedral.jpg",
+    "./assets/chinatown.jpg",
     "./assets/federation.jpg",
     "./assets/fitzroy.jpg",
     "./assets/flagstaff.jpg",
@@ -19,6 +20,7 @@ self.PRECACHE = {
     "./assets/fonts/dm-serif-text-LICENSE.txt",
     "./assets/fonts/dm-serif-text-latin-400-italic.woff2",
     "./assets/fonts/dm-serif-text-latin-400-normal.woff2",
+    "./assets/hosier.jpg",
     "./assets/immigration.jpg",
     "./assets/library.jpg",
     "./assets/market.jpg",

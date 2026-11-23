@@ -146,5 +146,23 @@
     "license": null,
     "license_url": null,
     "modified": "Original field-guide illustration."
+  },
+  {
+    "id": "hosier",
+    "site": "Hosier Lane",
+    "source": "https://commons.wikimedia.org/wiki/File:Hosier_Lane_Street_Art_Melbourne.jpg",
+    "author": "Bernard Spragg. NZ",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "modified": "Cropped and resized by Melbourne Visitor Explorer."
+  },
+  {
+    "id": "chinatown",
+    "site": "Chinatown",
+    "source": "https://commons.wikimedia.org/wiki/File:Little_Bourke_St,_Melbourne_20230219_1.jpg",
+    "author": "DXR",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "modified": "Cropped and resized by Melbourne Visitor Explorer."
   }
 ]

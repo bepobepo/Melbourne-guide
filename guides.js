@@ -100,6 +100,7 @@ export function renderGuide(view, lang = 'en') {
       <section class="guide-section transport-section"><h2>${c.transport}</h2>
         ${c.sections.map(([title, text]) => `<article><h3>${title}</h3>${paragraphs(text)}</article>`).join('')}
         ${externalLink('https://transport.vic.gov.au/journey', c.transportLink)}
+        ${externalLink('https://transport.vic.gov.au/tickets-and-myki', c.ticketLink)}
       </section>
       <section class="guide-section currency-section" aria-labelledby="currency-heading">
         <h2 id="currency-heading">${c.converter}</h2>

@@ -113,6 +113,22 @@ const mapStops = [
     "lat": -37.82142,
     "lon": 144.9711,
     "image": "./assets/alexandra.jpg"
+  },
+  {
+    "id": "hosier",
+    "number": 15,
+    "category": "culture",
+    "lat": -37.81663,
+    "lon": 144.96905,
+    "image": "./assets/hosier.jpg"
+  },
+  {
+    "id": "chinatown",
+    "number": 16,
+    "category": "history",
+    "lat": -37.8125015,
+    "lon": 144.9653949,
+    "image": "./assets/chinatown.jpg"
   }
 ];
 

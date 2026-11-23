@@ -6,7 +6,7 @@ This file supplies the guide, its spoken narration and the text on the screen. T
 
 ## Landmarks and parks
 
-Jump to a stop: [Flinders Street Station](#stop-flinders) · [State Library Victoria](#stop-library) · [The Block Arcade](#stop-block) · [Federation Square](#stop-federation) · [St Paul’s Cathedral](#stop-cathedral) · [Immigration Museum](#stop-immigration) · [Royal Arcade](#stop-royal) · [Queen Victoria Market](#stop-market) · [Flagstaff Gardens](#stop-flagstaff) · [Carlton Gardens](#stop-carlton) · [Treasury Gardens](#stop-treasury) · [Fitzroy Gardens](#stop-fitzroy) · [Birrarung Marr](#stop-birrarung) · [Alexandra Gardens](#stop-alexandra)
+Jump to a stop: [Flinders Street Station](#stop-flinders) · [State Library Victoria](#stop-library) · [The Block Arcade](#stop-block) · [Federation Square](#stop-federation) · [St Paul’s Cathedral](#stop-cathedral) · [Immigration Museum](#stop-immigration) · [Royal Arcade](#stop-royal) · [Queen Victoria Market](#stop-market) · [Flagstaff Gardens](#stop-flagstaff) · [Carlton Gardens](#stop-carlton) · [Treasury Gardens](#stop-treasury) · [Fitzroy Gardens](#stop-fitzroy) · [Birrarung Marr](#stop-birrarung) · [Alexandra Gardens](#stop-alexandra) · [Hosier Lane](#stop-hosier) · [Chinatown](#stop-chinatown)
 
 ### 1. Flinders Street Station `site.flinders`
 
@@ -16,7 +16,7 @@ Jump to a stop: [Flinders Street Station](#stop-flinders) · [State Library Vict
 
 **Address**
 
-Flinders St & Swanston St
+Southwest corner, Flinders St & Swanston St
 
 **Source**
 
@@ -30,7 +30,7 @@ Flinders Street Station
 
 **Summary**
 
-Meet beneath the clocks at Melbourne’s golden railway landmark.
+Meet beneath the clocks. Inside the station, follow Town Hall signs for the Metro Tunnel connection.
 
 **History**
 
@@ -58,11 +58,11 @@ The golden station façade and green dome above the corner entrance
 
 **Summary**
 
-Встретьтесь под часами у золотистого фасада главного вокзала Мельбурна.
+Встретьтесь под часами у главного вокзала. Внутри указатели Town Hall ведут к поездам Metro Tunnel.
 
 **History**
 
-В 1854 году отсюда в Сэндридж, нынешний Порт-Мельбурн, отправился первый пассажирский поезд на паровой тяге. Короткая линия связывала город с портом. По мере роста пригородов к вокзалу подходило всё больше путей, и к концу века старое здание уже не справлялось с утренним потоком пассажиров. Конкурс на новый проект выиграли два сотрудника железной дороги — Джеймс Фосетт и Генри Эшворт.
+В 1854 году отсюда в Сэндридж, нынешний Порт-Мельбурн, отправился первый пассажирский поезд на паровой тяге. Короткая линия связывала город с портом. По мере роста пригородов к вокзалу подходило всё больше путей, и к концу века старое здание уже не справлялось с утренним потоком пассажиров. Конкурс на новый проект выиграли два сотрудника железной дороги — Джеймс Фосетт и Г. П. К. Эшворт.
 
 Посмотрите, как далеко тянутся по Флиндерс-стрит ряды окон. Когда здание достроили в 1910 году, в нём поместились и служебные кабинеты, и зал наверху, где железнодорожники устраивали танцы. Над главными ступенями часы подсказывали пассажирам время отправления поездов. А чтобы назначить другу встречу, достаточно было сказать: «Под часами».
 
@@ -100,7 +100,7 @@ State Library Victoria
 
 **Summary**
 
-Step inside a public library built around the joy of discovery.
+Visit the domed reading room near State Library station, at the corner of Swanston and La Trobe streets.
 
 **History**
 
@@ -128,7 +128,7 @@ White tiers of galleries beneath the reading room’s glazed dome
 
 **Summary**
 
-Загляните в публичную библиотеку, где читают мельбурнцы с 1856 года.
+Загляните в читальный зал под куполом. Станция State Library находится рядом, на углу Суонстон-стрит и Латроб-стрит.
 
 **History**
 
@@ -226,7 +226,7 @@ Ornate arches above the shopfronts in the Block Arcade
 
 **Address**
 
-Swanston St & Flinders St
+Southeast corner, Flinders St & Swanston St
 
 **Source**
 
@@ -296,7 +296,7 @@ The paved plaza of Federation Square with its angular modern buildings
 
 **Address**
 
-Flinders St & Swanston St
+Northeast corner, Flinders St & Swanston St
 
 **Source**
 
@@ -454,17 +454,17 @@ Find the two clock guardians in Australia’s oldest surviving arcade.
 
 **History**
 
-Royal Arcade opened in 1870 with a covered passage between Bourke Street and Little Collins Street. Architect Charles Webb won a competition to design it. The original arcade had twenty-nine shops, and visitors to shop number twenty-seven could take a Turkish bath. A watchmaker named Thomas Gaunt also kept a shop here. His trade left a particularly conspicuous sign at the Little Collins Street end.
+Royal Arcade opened in 1870. Architect Charles Webb won a competition to design it. The Elizabeth Street entrance came later, with an extension in 1902. The original arcade had twenty-nine shops, and visitors to shop number twenty-seven could take a Turkish bath. A watchmaker named Thomas Gaunt also kept a shop here. His trade left a particularly conspicuous sign at the Little Collins Street end.
 
 Look up at the pair of giants beside the clock. Installed in 1892, Gog and Magog were modelled on figures in London’s Guildhall. Their hammers mark the passing hours. Under your feet, the floor has a rather less grand connection to history. Rats tunnelled beneath the original stone paving, and black and white squares replaced it in the 1930s. The later terrazzo floor keeps those colours.
 
 **Question**
 
-Find the two giants above the clock. What are they holding, and what do you think it is for?
+At the Little Collins Street end, find the giants on either side of the clock. What tells you that they mark the hours? Now look for another keeper of time at the Bourke Street end.
 
 **Answer**
 
-Each giant holds a hammer. They strike the bells to mark the passing hours. If you are here on the hour, pause for a listen.
+Gog and Magog hold hammers to strike the bells. At the other end, look up for Father Time. Try spotting the figures first, then listen if you are here on the hour.
 
 **Alt**
 
@@ -482,17 +482,17 @@ The arched glass roof and hanging lights of Royal Arcade
 
 **History**
 
-Королевский пассаж открылся в 1870 году. Между Бурк-стрит и Литл-Коллинз-стрит появился крытый проход по проекту Чарльза Уэбба, победителя архитектурного конкурса. В галерее было двадцать девять лавок, причём за дверью под номером двадцать семь скрывались турецкие бани. Здесь держал мастерскую и часовщик Томас Гонт. У выхода на Литл-Коллинз-стрит до сих пор видно напоминание о его ремесле.
+Королевский пассаж открылся в 1870 году. Галерею спроектировал Чарльз Уэбб, победитель архитектурного конкурса. Вход с Элизабет-стрит появился при расширении пассажа в 1902 году. В галерее было двадцать девять лавок, причём за дверью под номером двадцать семь скрывались турецкие бани. Здесь держал мастерскую и часовщик Томас Гонт. У выхода на Литл-Коллинз-стрит до сих пор видно напоминание о его ремесле.
 
 Поднимите глаза к часам. По сторонам от них стоят великаны Гог и Магог. Их установили в 1892 году по образцу фигур из лондонской ратуши Гилдхолл. Молотами великаны отбивают часы. А у рисунка под вашими ногами совсем другая история. Крысы прорыли ходы под прежними каменными плитами, и в 1930-х годах их заменили чёрно-белыми квадратами. На более позднем полу из терраццо сохранились те же цвета.
 
 **Question**
 
-Найдите двух великанов над часами. Что у них в руках и для чего это нужно?
+У выхода на Литл-Коллинз-стрит найдите великанов по обе стороны от часов. Что подсказывает, что они отбивают часы? А теперь поищите ещё одного хранителя времени у выхода на Бурк-стрит.
 
 **Answer**
 
-У каждого великана в руках молот. Ими они ударяют в колокола, отбивая часы. Если приближается начало часа, остановитесь и послушайте.
+Гог и Магог держат молоты, которыми бьют в колокола. На другом конце галереи поднимите глаза: там изображён Отец Время. Если приближается начало часа, задержитесь и послушайте бой.
 
 **Alt**
 
@@ -554,7 +554,7 @@ The ornate stone front of Queen Victoria Market
 
 Рынок королевы Виктории официально открылся в марте 1878 года, хотя в нижней части нынешнего участка мясом и овощами торговали и раньше. Кирпичный мясной павильон построили ещё в 1869 году. Сравните ряды открытых навесов с двухэтажными лавками вдоль Элизабет-стрит. В 1880-х годах лавки образовали парадный уличный фасад рынка, а между навесами остались проезды, где фермеры могли разгрузить свой урожай и сразу выставить его на продажу.
 
-Часть рынка занимает территорию первого официального городского кладбища. Землю под него отвели в 1837 году, когда европейское поселение было ещё небольшим. По мере расширения рынка часть захоронений перенесли, но тысячи людей по-прежнему покоятся здесь. За привычной сценой субботних покупок скрывается и эта страница истории города.
+Часть рынка занимает территорию первого официального городского кладбища. Землю под него отвели в 1837 году, когда европейское поселение было ещё небольшим. По мере расширения рынка часть захоронений перенесли, но тысячи людей по-прежнему покоятся здесь. За привычной сценой покупок на неделю скрывается и эта страница истории города.
 
 **Question**
 
@@ -704,7 +704,7 @@ The Centennial Exhibition in Carlton Gardens, 1888. The view includes temporary 
 
 **History**
 
-Эти сады помогали Мельбурну представить себя миру. Королевский выставочный центр вместе с окружающим ландшафтом принимал Международную выставку 1880 года, а затем ещё более масштабную Юбилейную выставку 1888 года. Посетители знакомились с промышленными изделиями, искусством и изобретениями разных стран. Архитектор Джозеф Рид и ландшафтный дизайнер Уильям Сангстер вместе продумывали дорожки, фонтаны и посадки, чтобы они подчёркивали величие павильона с куполом.
+Эти сады помогали Мельбурну представить себя миру. Королевский выставочный центр вместе с окружающим ландшафтом принимал Международную выставку 1880 года, а затем ещё более масштабную Столетнюю выставку 1888 года. Посетители знакомились с промышленными изделиями, искусством и изобретениями разных стран. Архитектор Джозеф Рид и ландшафтный дизайнер Уильям Сангстер вместе продумывали дорожки, фонтаны и посадки, чтобы они подчёркивали величие павильона с куполом.
 
 В 1901 году в здании состоялось открытие первого федерального парламента Австралии. В 2004 году павильон и сады вместе вошли в список Всемирного наследия ЮНЕСКО как сохранившийся памятник международному выставочному движению. Из южной части сада длинные перспективы, взрослые деревья и фонтан превращают сам ландшафт в часть зрелища. Газоны здесь всегда были чем-то большим, чем просто передний план для фотографии.
 
@@ -752,7 +752,7 @@ Find shady avenues and a long tradition of public gatherings beside the governme
 
 Treasury Gardens grew beside the government buildings at the eastern edge of the city. Clement Hodgkinson prepared their layout in 1867, arranging crossing paths, perimeter walks and trees to create a public retreat. Much of that structure remains visible. The contrast between spreading evergreen figs and deciduous elms gives the gardens different textures and changing seasonal light.
 
-In 1902, William Guilfoyle designed a Japanese garden around the lake, adding another layer to the landscape. The lawns have also hosted festivals, open-air concerts, political meetings and union rallies. Their closeness to the city’s institutions made this both a place to rest and a place to be heard. Walk slowly beneath the tree avenues and notice how their branches form a leafy ceiling above the public paths.
+A Japanese garden once stood around the lake. William Guilfoyle designed it in 1902. The pond marks the spot today. The lawns have also hosted festivals, open-air concerts, political meetings and union rallies. Their closeness to the city’s institutions made this both a place to rest and a place to be heard. Walk slowly beneath the tree avenues and notice how their branches form a leafy ceiling above the public paths.
 
 **Question**
 
@@ -784,7 +784,7 @@ Field illustration of Treasury Gardens.
 
 Сады Трежери возникли рядом с правительственными зданиями на восточной окраине городского центра. В 1867 году Клемент Ходжкинсон разработал их план: пересекающиеся дорожки, прогулочные маршруты по периметру и деревья создавали общественное место отдыха. Значительная часть этой структуры видна и сегодня. Раскидистые вечнозелёные фикусы соседствуют с листопадными вязами, поэтому фактура и освещение сада меняются от сезона к сезону.
 
-В 1902 году Уильям Гилфойл спроектировал японский сад вокруг пруда, добавив новый слой к местному ландшафту. На газонах проходили праздники, концерты под открытым небом, политические собрания и профсоюзные митинги. Близость к городским учреждениям сделала это место одновременно уголком отдыха и пространством, где можно заявить о себе. Пройдите неспешно по аллеям и посмотрите, как ветви образуют над дорожками зелёный потолок.
+Когда-то вокруг пруда был японский сад. Его спроектировал Уильям Гилфойл в 1902 году. Сегодня ориентиром служит сам пруд. На газонах проходили праздники, концерты под открытым небом, политические собрания и профсоюзные митинги. Близость к городским учреждениям сделала это место одновременно уголком отдыха и пространством, где можно заявить о себе. Пройдите неспешно по аллеям и посмотрите, как ветви образуют над дорожками зелёный потолок.
 
 **Question**
 
@@ -834,11 +834,11 @@ Later generations added new attractions and changed the planting, so the gardens
 
 **Question**
 
-Choose an elm-lined path and compare it with an open lawn. How do the light, sound and sense of space change?
+Find the model Tudor village and the nearby Fairies’ Tree. Which details would make sense to a person the size of your thumb? Take turns spotting one that the other person missed.
 
 **Answer**
 
-The avenue draws your gaze ahead and shelters the path beneath a canopy, while the lawn opens a wider view and more sky. Garden designers used this contrast to turn a short city walk into a sequence of different spaces.
+Look for tiny doors and chimneys in the village, then compare them with the figures carved into the tree. One artist imagined a place for people to live; another turned the shape of a tree into a world of its own.
 
 **Alt**
 
@@ -866,11 +866,11 @@ Fitzroy Gardens in an engraving published in 1886.
 
 **Question**
 
-Сравните вязовую аллею с открытым газоном. Как меняются свет, звуки и ощущение пространства?
+Найдите миниатюрную деревню эпохи Тюдоров и Дерево фей неподалёку. Какие детали пригодились бы человеку ростом с большой палец? По очереди найдите то, чего ваш спутник ещё не заметил.
 
 **Answer**
 
-Аллея направляет взгляд вперёд и укрывает дорожку кронами, а газон открывает широкую панораму и больше неба. На этом контрасте садовники строили прогулку: даже короткий городской маршрут превращался в череду разных пространств.
+В деревне поищите крошечные двери и дымоходы, а на стволе дерева — резные фигурки. В одном случае мастер придумал жилища для людей, в другом сама форма дерева подсказала целый сказочный мир.
 
 **Alt**
 
@@ -1036,6 +1036,146 @@ Field illustration of Alexandra Gardens.
 
 Иллюстрация для путеводителя: Сады Александры.
 
+### 15. Hosier Lane `site.hosier`
+
+<a id="stop-hosier"></a>
+
+#### Place details
+
+**Address**
+
+Hosier Lane at Flinders St
+
+**Source**
+
+https://whatson.melbourne.vic.gov.au/things-to-do/walks/street-art
+
+#### English
+
+**Name**
+
+Hosier Lane
+
+**Summary**
+
+Follow the layers of street art on a bluestone lane opposite Federation Square.
+
+**History**
+
+Melbourne’s lanes once did the work that the grand shopping streets kept out of sight. Deliveries arrived at the backs of buildings, where doors, shutters and drains still break up the brickwork. On Hosier Lane those working surfaces became part of an outdoor gallery. Paint, paper and stencils accumulate at different speeds: a portrait can disappear while a scrap of an older poster survives just beneath it.
+
+Start at Flinders Street and walk uphill towards Flinders Lane. Choose a patch of wall rather than a particular mural from a photo. Tomorrow the wall may already tell a different story. Leave space at doorways for people who still work here.
+
+**Question**
+
+Can you find evidence of two artists working on the same patch of wall at different times?
+
+**Answer**
+
+Look for paint crossing the edge of a stencil, or torn paper revealing an older colour underneath. What looks like a single picture from a distance can hold several layers.
+
+**Alt**
+
+Colourful street art on the walls of Hosier Lane
+
+#### Русский
+
+**Name**
+
+Хозиер-лейн
+
+**Summary**
+
+Пройдите по мощёному переулку напротив площади Федерации и присмотритесь к слоям уличного искусства.
+
+**History**
+
+Пока на парадных торговых улицах выбирали покупки, в переулки доставляли товар через чёрный ход. В Хозиер-лейн двери, ставни и водостоки по-прежнему делят кирпичные стены на участки. Теперь эти поверхности стали галереей под открытым небом. Краска, бумага и трафареты стареют по-разному: портрет могут закрасить, а под ним ещё долго виднеется край старой афиши.
+
+Начните с Флиндерс-стрит и поднимайтесь к Флиндерс-лейн. Выберите небольшой участок стены, вместо того чтобы искать рисунок с фотографии: уже завтра здесь может появиться другая работа. Оставляйте свободными входы в здания.
+
+**Question**
+
+Найдёте ли вы на одном участке стены следы двух художников, работавших в разное время?
+
+**Answer**
+
+Присмотритесь, не заходит ли краска на край старого трафарета и не виден ли из-под надорванной бумаги другой цвет. Издали несколько слоёв могут казаться одним рисунком.
+
+**Alt**
+
+Разноцветные работы уличных художников на стенах Хозиер-лейн
+
+### 16. Chinatown `site.chinatown`
+
+<a id="stop-chinatown"></a>
+
+#### Place details
+
+**Address**
+
+Little Bourke St at Swanston St
+
+**Source**
+
+https://chinatownmelbourne.com.au/
+
+#### English
+
+**Name**
+
+Chinatown
+
+**Summary**
+
+Enter Little Bourke Street to trace a neighbourhood built around migration, trade and mutual support.
+
+**History**
+
+In the 1850s the Victorian goldfields drew migrants from southern China. Little Bourke Street became a place to buy supplies, find accommodation and exchange news before travelling inland. As families and businesses put down roots, district associations helped newcomers find their way in an unfamiliar city.
+
+Walk east from Swanston Street towards Russell Street. Restaurants are the most visible part of the neighbourhood today, but they tell only one part of the story. Look above the shopfronts and into the side lanes for upper-storey windows, older brickwork and signs in different scripts. The Chinese Museum on nearby Cohen Place tells more of the stories behind the street.
+
+**Question**
+
+Choose a building and look above its shop sign. What clues suggest the street has served more than one generation?
+
+**Answer**
+
+Compare the age and materials of the sign, windows and brickwork. A business can change while the older shape of its building remains visible.
+
+**Alt**
+
+Little Bourke Street in Melbourne’s Chinatown
+
+#### Русский
+
+**Name**
+
+Китайский квартал
+
+**Summary**
+
+Пройдите по Литл-Бурк-стрит — здесь торговали, обменивались новостями и помогали приезжим.
+
+**History**
+
+В 1850-х годах золотые прииски Виктории привлекали переселенцев с юга Китая. На Литл-Бурк-стрит можно было купить припасы, переночевать и узнать новости перед дорогой в глубь штата. Постепенно здесь открывались постоянные лавки и селились семьи. Землячества помогали новичкам освоиться в незнакомом городе.
+
+От Суонстон-стрит идите на восток к Рассел-стрит. Сегодня сразу бросаются в глаза рестораны, но история квартала гораздо шире. Поднимите голову: над вывесками видны окна верхних этажей и старая кирпичная кладка. Обратите внимание на надписи на разных языках. Рядом, на Коэн-плейс, находится Музей китайской истории Австралии.
+
+**Question**
+
+Выберите дом и посмотрите выше вывески. По каким деталям видно, что улица служит уже не одному поколению?
+
+**Answer**
+
+Сравните материалы и возраст вывески, окон и кирпичной кладки. Хозяева магазина меняются, а очертания старого дома по-прежнему узнаваемы.
+
+**Alt**
+
+Литл-Бурк-стрит в Китайском квартале Мельбурна
+
 ## History
 
 ### Before the street grid `chapter.1`
@@ -1126,7 +1266,7 @@ In 1837 surveyor Robert Hoddle laid out a grid of broad streets alternating with
 
 **Story**
 
-В 1837 году землемер Роберт Ходдл распланировал центр так, чтобы между широкими улицами шли более узкие, хозяйственные. Встаньте на углу Суонстон-стрит и Коллинз-стрит и посмотрите вдоль кварталов. Параллельно Коллинз-стрит идёт Литтл-Коллинз-стрит, а рядом с Бурк-стрит — Литтл-Бурк-стрит. По «малым» улицам подвозили товары к чёрным ходам домов на главных улицах. Ещё более узкие переулки и крытые пассажи, по которым вы можете пройти сегодня, появились внутри первоначальных кварталов.
+В 1837 году землемер Роберт Ходдл распланировал центр так, чтобы между широкими улицами шли более узкие, хозяйственные. Встаньте на углу Суонстон-стрит и Коллинз-стрит и посмотрите вдоль кварталов. Параллельно Коллинз-стрит идёт Литл-Коллинз-стрит, а рядом с Бурк-стрит — Литл-Бурк-стрит. По «малым» улицам подвозили товары к чёрным ходам домов на главных улицах. Ещё более узкие переулки и крытые пассажи, по которым вы можете пройти сегодня, появились внутри первоначальных кварталов.
 
 ### Gold leaves its mark `chapter.4`
 
@@ -1156,7 +1296,7 @@ Victoria became a separate colony in 1851, the same year gold discoveries brough
 
 **Story**
 
-В 1851 году Виктория стала отдельной колонией, а находки золота привлекли сюда переселенцев. Многие высаживались в Мельбурне и отправлялись к приискам близ Балларата и Бендиго. Литтл-Бурк-стрит стала местом встреч для приезжих из Китая. Здесь открывались лавки, постоялые дворы и землячества. Сегодня по этой улице проходит Китайский квартал. О растущем достатке города напоминают торговые пассажи. Ройал-Аркейд открылся в 1870 году, первая часть Блок-Аркейда — в 1892-м. Посмотрите на стеклянные крыши: через них дневной свет проникает в самую глубину квартала.
+В 1851 году Виктория стала отдельной колонией, а находки золота привлекли сюда переселенцев. Многие высаживались в Мельбурне и отправлялись к приискам близ Балларата и Бендиго. Литл-Бурк-стрит стала местом встреч для приезжих из Китая. Здесь открывались лавки, постоялые дворы и землячества. Сегодня по этой улице проходит Китайский квартал. О растущем достатке города напоминают торговые пассажи. Королевский пассаж открылся в 1870 году, первая часть Блок-Аркейда — в 1892-м. Посмотрите на стеклянные крыши: через них дневной свет проникает в самую глубину квартала.
 
 ### A city meets under the clocks `chapter.5`
 
@@ -1216,7 +1356,7 @@ On 1 January 1901 six colonies federated to form the Commonwealth of Australia. 
 
 **Story**
 
-1 января 1901 года шесть колоний объединились в Австралийский Союз. У штатов сохранились собственные парламенты, а у страны появился федеральный. Его первая сессия открылась 9 мая в Королевском выставочном центре в садах Карлтон. Затем федеральные депутаты заняли здание парламента Виктории на Спринг-стрит, а парламент штата временно перебрался в выставочный центр. В 1927 году федеральный парламент переехал в Канберру. Поэтому с первыми годами истории австралийского парламента в Мельбурне связаны сразу два здания.
+1 января 1901 года шесть колоний объединились в Австралийский Союз. У штатов сохранились собственные парламенты, а у страны появился федеральный. Его первая сессия открылась 9 мая в Королевском выставочном центре в Карлтонских садах. Затем федеральные депутаты заняли здание парламента Виктории на Спринг-стрит, а парламент штата временно перебрался в выставочный центр. В 1927 году федеральный парламент переехал в Канберру. Поэтому с первыми годами истории австралийского парламента в Мельбурне связаны сразу два здания.
 
 ### Who could call Melbourne home? `chapter.7`
 
@@ -1300,7 +1440,7 @@ At the tram stop, look for green Free Tram Zone signs and the boundary on the ne
 
 **Story**
 
-На трамвайной остановке ищите зелёные знаки Free Tram Zone и границу зоны на схеме сети. В неё входят многие достопримечательности центра и рынок Королевы Виктории. Если вы садитесь и выходите внутри зоны, а трамвай по пути не покидает её границ, карту прикладывать не нужно. Бесплатный проезд действует в трамваях. Для поездки на поезде даже между двумя станциями в центре нужен действующий билет.
+На трамвайной остановке ищите зелёные знаки Free Tram Zone и границу зоны на схеме сети. В неё входят многие достопримечательности центра и рынок королевы Виктории. Если вы садитесь и выходите внутри зоны, а трамвай по пути не покидает её границ, карту прикладывать не нужно. Бесплатный проезд действует в трамваях. Для поездки на поезде даже между двумя станциями в центре нужен действующий билет.
 
 ### If your tram crosses the boundary `transport.2`
 
@@ -1312,7 +1452,7 @@ If your tram crosses the boundary
 
 **Story**
 
-Check the whole journey before boarding. If your trip starts or ends outside the free zone, touch on a valid myki when you board. For example, a tram trip from the city towards St Kilda goes beyond the zone. For an ordinary Zone 1 tram trip you do not need to touch off. Each person travelling with myki needs their own card. You can buy or top one up at staffed stations, station ticket machines and participating shops.
+If your tram crosses the Free Tram Zone boundary, touch on when you board. Each fare-paying traveller needs their own way to pay. Use a valid myki, or a contactless Visa or Mastercard where the reader accepts bank cards. A phone or watch with an eligible card in its wallet can also work. If two of you are travelling, choose one card or device each and stick with it for the journey. A phone and the plastic card linked to it count as different payment methods. Follow the touch-off instructions for your fare and zone; on a usual Zone 1 tram trip with myki, you only need to touch on.
 
 #### Русский
 
@@ -1322,7 +1462,7 @@ Check the whole journey before boarding. If your trip starts or ends outside the
 
 **Story**
 
-Посмотрите весь маршрут до посадки. Если вы садитесь или выходите за пределами бесплатной зоны, приложите действующую карту myki к считывателю при посадке. Например, поездка из центра в Сент-Килду выходит за пределы зоны. В обычной поездке на трамвае в зоне 1 при выходе прикладывать карту не нужно. Если вы пользуетесь myki, у каждого должна быть своя карта. Купить или пополнить её можно в станционных кассах, билетных автоматах на станциях и магазинах со знаком myki.
+Если трамвай выезжает за пределы Free Tram Zone, приложите карту при посадке. Каждому, кто оплачивает проезд, нужен свой способ оплаты. Подойдёт действующая myki, а если считыватель принимает банковские карты — бесконтактная Visa или Mastercard, в том числе в электронном кошельке телефона или часов. Путешествуете вдвоём? Пусть каждый выберет свою карту или устройство на всю поездку. Телефон и привязанная к нему пластиковая карта считаются разными средствами оплаты. При выходе следуйте указаниям для своего тарифа и зоны. При обычной поездке по зоне 1 на трамвае с myki достаточно отметиться при посадке.
 
 ### Find the right tram together `transport.3`
 
@@ -1356,7 +1496,9 @@ Trains, buses and changes
 
 **Story**
 
-For metropolitan trains and buses, touch your myki on at the start and off at the end. At railway stations, look for the reader at the gate or on the platform entrance. For buses, the reader is on board. At Flinders Street Station, check the departure screens for the destination, platform and stopping pattern. When a service changes, the official journey planner shows current departures and disruptions.
+On metropolitan trains and buses, touch on at the start and off at the end with the same card or device. Look for the reader at the station gate, platform entrance or on the bus. Check the payment symbols before boarding. Travelling with someone aged 5–17? Check Transport Victoria’s Youth myki requirements for free travel.
+
+For Sunbury, Cranbourne and Pakenham line trains through the Metro Tunnel, look for Town Hall or State Library station on the map. At Flinders Street Station, signs for Town Hall lead via the Degraves Street Subway. At Melbourne Central you can follow the underground connection to State Library. For the library visit, look for the Swanston Street and La Trobe Street exit and check the street signs above ground.
 
 #### Русский
 
@@ -1366,7 +1508,9 @@ For metropolitan trains and buses, touch your myki on at the start and off at th
 
 **Story**
 
-В городских поездах и автобусах прикладывайте myki в начале и в конце поездки. На железнодорожной станции ищите считыватель на турникете или у входа на платформу. В автобусе он находится в салоне. На вокзале Флиндерс-стрит проверьте на табло конечную станцию, номер платформы и список остановок поезда. Если движение изменилось, официальный планировщик покажет актуальные отправления и сообщения о сбоях.
+В городских поездах и автобусах приложите одну и ту же карту или одно и то же устройство при входе и выходе. Ищите считыватель на турникете, у входа на платформу или в салоне автобуса. До посадки проверьте обозначения способов оплаты. Если с вами ребёнок от 5 до 17 лет, уточните на сайте Transport Victoria, как оформить карту Youth myki для бесплатного проезда.
+
+Если нужен поезд линии Санбери, Крэнборн или Пакенем, идущий через Metro Tunnel, найдите на схеме станции Town Hall и State Library. На вокзале Флиндерс-стрит следуйте указателям Town Hall через подземный переход Degraves Street Subway. Со станции Melbourne Central на State Library также можно перейти под землёй. К библиотеке удобен выход к Суонстон-стрит и Латроб-стрит. Наверху сверьтесь с табличками улиц.
 
 ### A step-free trip `transport.5`
 
@@ -1417,6 +1561,7 @@ On the tram network, an accessible journey needs both a level-access stop and a 
 | `guide.rateNote` | %kind% · %date%. %fees% | %kind% · %date%. %fees% |
 | `guide.savedRates` | Saved reference rates | Сохранённые курсы |
 | `guide.transport` | Getting around | Общественный транспорт |
+| `guide.ticketLink` | Check tickets and fares | Билеты и тарифы |
 | `guide.transportLink` | Plan a trip with Transport Victoria | Планировщик Transport Victoria |
 
 ### ui.app
@@ -1560,8 +1705,8 @@ On the tram network, an accessible journey needs both a level-access stop and a 
 
 | Key | English | Русский |
 | --- | --- | --- |
-| `ui.location.denied` | Allow location in browser settings to see nearby stops. | Разрешите геолокацию в настройках браузера. |
-| `ui.location.error` | Location unavailable. Browse the city map or try again. | Местоположение недоступно. Попробуйте ещё раз. |
+| `ui.location.denied` | Allow location in browser settings to see nearby stops. | Разрешите геолокацию в настройках браузера, чтобы увидеть ближайшие места. |
+| `ui.location.error` | Location unavailable. Browse the city map or try again. | Не удалось определить местоположение. Воспользуйтесь картой или попробуйте ещё раз. |
 | `ui.location.found` | Places are sorted by distance from you. | Места отсортированы по расстоянию от вас. |
 | `ui.location.idle` | Find the closest places to you. | Найдите ближайшие к вам места. |
 | `ui.location.intro` | Explore from your location | Начните прогулку рядом с вами |
@@ -1643,3 +1788,11 @@ On the tram network, an accessible journey needs both a level-access stop and a 
 | `ui.voice.streaming` | Streaming audio… | Воспроизводим аудиозапись… |
 | `ui.voice.tap` | Press play to listen. | Нажмите кнопку воспроизведения. |
 | `ui.voice.unconfigured` | Audio narration hasn’t been set up yet. | Аудиогид пока не настроен. |
+
+### Walking loop
+
+| Key | English | Русский |
+| --- | --- | --- |
+| `ui.loop.title` | A short loop from the station | Короткая прогулка от вокзала |
+| `ui.loop.intro` | Start under the clocks. Cross at the lights to Federation Square, then cross Flinders Street at the marked crossing near the square and walk to Hosier Lane. Return along Flinders Street past St Paul’s Cathedral and cross back to the station. Allow extra time to stop and look. | Начните под часами вокзала. По светофору перейдите к площади Федерации, затем у площади перейдите Флиндерс-стрит по пешеходному переходу и дойдите до Хозиер-лейн. Возвращайтесь по Флиндерс-стрит мимо собора Святого Павла и перейдите дорогу обратно к вокзалу. Оставьте время на остановки. |
+| `ui.loop.return` | Return to the station clocks | Вернуться к часам на вокзале |
